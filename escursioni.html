@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="Escursioni di Lyam On Trail — Itinerari di una giornata tra montagne, sentieri e panorami.">
+
+<title>Escursioni — LYAM ON TRAIL</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+body {
+    margin: 0;
+    background: #f5f3ee;
+    color: #17211c;
+    font-family: Arial, sans-serif;
+}
+
+.page-header {
+    padding: 28px 6%;
+    border-bottom: 1px solid #d9d6cf;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.page-header a {
+    color: #17211c;
+    text-decoration: none;
+}
+
+.logo {
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    font-weight: 400;
+}
+
+.back-link {
+    font-size: 14px;
+}
+
+.hero {
+    min-height: 55vh;
+    padding: 80px 8%;
+    display: flex;
+    align-items: flex-end;
+    box-sizing: border-box;
+    background:
+        linear-gradient(rgba(23,33,28,.15), rgba(23,33,28,.55)),
+        url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
+    color: white;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.eyebrow {
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+}
+
+h1 {
+    font-size: clamp(48px, 8vw, 90px);
+    line-height: .95;
+    margin: 0 0 24px;
+}
+
+.hero p:last-child {
+    font-size: 18px;
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+.section {
+    padding: 90px 8%;
+}
+
+.section-label {
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-bottom: 80px;
+}
+
+h2 {
+    font-size: clamp(36px, 5vw, 60px);
+    line-height: 1;
+    margin: 0;
+}
+
+.intro-copy {
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.excursion-card {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    background: #ebe8df;
+}
+
+.excursion-photo {
+    min-height: 500px;
+    background:
+        url("https://images.unsplash.com/photo-1464278533981-50106e6176b1?auto=format&fit=crop&w=1400&q=85")
+        center/cover;
+}
+
+.excursion-info {
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.excursion-info h3 {
+    font-size: 42px;
+    margin: 10px 0 20px;
+}
+
+.excursion-info p {
+    line-height: 1.7;
+    font-size: 17px;
+}
+
+.meta {
+    display: flex;
+    gap: 30px;
+    margin: 25px 0;
+    flex-wrap: wrap;
+}
+
+.meta span {
+    font-size: 14px;
+    letter-spacing: .5px;
+}
+
+.button {
+    display: inline-block;
+    width: fit-content;
+    padding: 14px 22px;
+    background: #17211c;
+    color: white;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.site-footer {
+    padding: 50px 8%;
+    background: #17211c;
+    color: white;
+}
+
+.footer-brand {
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+.footer-brand span {
+    font-weight: 400;
+}
+
+.footer-links {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+@media (max-width: 800px) {
+    .intro-grid,
+    .excursion-card {
+        grid-template-columns: 1fr;
+    }
+
+    .excursion-photo {
+        min-height: 350px;
+    }
+
+    .excursion-info {
+        padding: 40px 30px;
+    }
+
+    .section {
+        padding: 60px 6%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="page-header">
+    <a href="index.html" class="logo">
+        LYAM <span>ON TRAIL</span>
+    </a>
+
+    <a href="index.html#escursioni" class="back-link">
+        ← Torna alle escursioni
+    </a>
+</header>
+
+<main>
+
+<section class="hero">
+    <div class="hero-content">
+        <p class="eyebrow">ESCURSIONI · MONTI SIBILLINI</p>
+
+        <h1>Monte Vettore</h1>
+
+        <p>
+            Una salita nel cuore dei Monti Sibillini,
+            tra grandi panorami appenninici e la vetta più alta del massiccio.
+        </p>
+    </div>
+</section>
+
+<section class="section">
+
+    <div class="section-label">01 — L'ESCURSIONE</div>
+
+    <div class="intro-grid">
+
+        <div>
+            <h2>
+                Una giornata<br>
+                in quota.
+            </h2>
+        </div>
+
+        <div class="intro-copy">
+
+            <p>
+                Il Monte Vettore è la cima più alta dei Monti Sibillini
+                e raggiunge i 2.476 metri.
+            </p>
+
+            <p>
+                L'escursione permette di entrare nel cuore del massiccio
+                e di godere di alcuni dei panorami più spettacolari
+                dell'Appennino centrale.
+            </p>
+
+            <p>
+                Durante il mio viaggio sui Sibillini ho dovuto rinunciare
+                alla salita prevista lungo il Grande Anello a causa del
+                maltempo. Sono quindi tornato successivamente per
+                affrontare il Vettore come escursione indipendente.
+            </p>
+
+        </div>
+
+    </div>
+
+    <article class="excursion-card">
+
+        <div class="excursion-photo"></div>
+
+        <div class="excursion-info">
+
+            <p class="eyebrow">MONTE VETTORE · 2.476 M</p>
+
+            <h3>Un balcone sui Sibillini.</h3>
+
+            <p>
+                L'itinerario attraversa l'ambiente d'alta quota del
+                massiccio e conduce verso la vetta del Vettore,
+                con ampie vedute sulla Piana di Castelluccio,
+                sui monti circostanti e sull'Appennino.
+            </p>
+
+            <div class="meta">
+                <span>≈ 11,4 km</span>
+                <span>≈ 5 h 15 min</span>
+                <span>+1.180 m</span>
+            </div>
+
+            <a
+                class="button"
+                href="https://www.komoot.com/tour/3279919692"
+                target="_blank"
+                rel="noopener"
+            >
+                Vedi il percorso su Komoot →
+            </a>
+
+        </div>
+
+    </article>
+
+</section>
+
+</main>
+
+<footer class="site-footer">
+
+    <div class="footer-brand">
+        LYAM <span>ON TRAIL</span>
+    </div>
+
+    <div class="footer-links">
+        <a href="index.html#cammini">Cammini</a>
+        <a href="index.html#trekking">Trekking</a>
+        <a href="index.html#corsa">Corsa</a>
+        <a href="index.html#escursioni">Escursioni</a>
+        <a href="index.html#attrezzatura">Attrezzatura</a>
+        <a href="index.html#diario">Diario</a>
+        <a href="index.html#about">Chi sono</a>
+    </div>
+
+</footer>
+
+</body>
+</html>
