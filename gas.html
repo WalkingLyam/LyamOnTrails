@@ -1,18 +1,296 @@
-```html
 <!DOCTYPE html>
 <html lang="it">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Grande Anello dei Sibillini — itinerario, informazioni, esperienza e fotografie del cammino.">
+
+<meta name="description" content="Grande Anello dei Sibillini — il mio viaggio di 8 giorni sui Monti Sibillini, con dati delle tappe, esperienza e tracce.">
+
 <title>Grande Anello dei Sibillini — LYAM ON TRAIL</title>
+
 <link rel="stylesheet" href="style.css">
+
+<style>
+/* =========================================================
+   GRANDE ANELLO DEI SIBILLINI
+   Stili specifici della pagina
+   ========================================================= */
+
+.trail-page-hero {
+    position: relative;
+    min-height: 72vh;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+}
+
+.trail-page-hero-image {
+    position: absolute;
+    inset: 0;
+    background-image: url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=2000&q=85");
+    background-size: cover;
+    background-position: center;
+}
+
+.trail-page-hero .hero-overlay {
+    position: absolute;
+    inset: 0;
+}
+
+.trail-page-hero .hero-content {
+    position: relative;
+    z-index: 2;
+    width: min(1200px, 90%);
+    margin: 0 auto;
+    padding: 100px 0 90px;
+    color: white;
+}
+
+.trail-page-hero h1 {
+    font-size: clamp(3rem, 7vw, 6.5rem);
+    line-height: .92;
+    margin: 15px 0 25px;
+}
+
+.trail-page-hero p:not(.eyebrow) {
+    font-size: 1.2rem;
+    max-width: 600px;
+}
+
+.trail-introduction {
+    padding-top: 110px;
+    padding-bottom: 100px;
+}
+
+.trail-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid rgba(23,33,28,.2);
+    border-bottom: 1px solid rgba(23,33,28,.2);
+}
+
+.trail-detail {
+    padding: 55px 25px;
+    border-right: 1px solid rgba(23,33,28,.2);
+}
+
+.trail-detail:last-child {
+    border-right: 0;
+}
+
+.trail-detail span {
+    display: block;
+}
+
+.detail-label {
+    font-size: .72rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    opacity: .65;
+}
+
+.trail-detail strong {
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.route-note {
+    margin-top: 35px;
+    max-width: 720px;
+    opacity: .8;
+}
+
+.stage-list {
+    margin-top: 50px;
+    border-top: 1px solid rgba(23,33,28,.2);
+}
+
+.stage-item {
+    display: grid;
+    grid-template-columns: 90px 1fr auto;
+    gap: 25px;
+    align-items: center;
+    padding: 30px 0;
+    border-bottom: 1px solid rgba(23,33,28,.2);
+}
+
+.stage-number {
+    font-size: .8rem;
+    letter-spacing: .12em;
+    opacity: .55;
+}
+
+.stage-content h3 {
+    margin: 0 0 8px;
+    font-size: 1.35rem;
+}
+
+.stage-content p {
+    margin: 0;
+    opacity: .7;
+}
+
+.stage-stats {
+    display: flex;
+    gap: 24px;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.stage-stat {
+    display: flex;
+    flex-direction: column;
+}
+
+.stage-stat small {
+    font-size: .65rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    opacity: .55;
+}
+
+.stage-stat strong {
+    font-size: .95rem;
+    font-weight: 500;
+    margin-top: 4px;
+}
+
+.stage-link {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: .8rem;
+    text-decoration: underline;
+}
+
+.weather-note {
+    margin: 55px 0 0;
+    padding: 35px;
+    border: 1px solid rgba(23,33,28,.2);
+}
+
+.weather-note h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+.vettore-section {
+    margin-top: 0;
+}
+
+.vettore-box {
+    padding: 60px;
+    background: #17211c;
+    color: white;
+}
+
+.vettore-box h2 {
+    margin-top: 0;
+}
+
+.vettore-box p {
+    max-width: 720px;
+    opacity: .82;
+}
+
+.vettore-meta {
+    display: flex;
+    gap: 35px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.vettore-meta span {
+    display: flex;
+    flex-direction: column;
+}
+
+.vettore-meta small {
+    font-size: .65rem;
+    letter-spacing: .1em;
+    opacity: .6;
+    margin-bottom: 5px;
+}
+
+.vettore-meta strong {
+    font-size: 1.1rem;
+}
+
+.komoot-box {
+    margin-top: 70px;
+    padding: 45px;
+    border: 1px solid rgba(23,33,28,.2);
+}
+
+.komoot-box h3 {
+    margin-top: 0;
+}
+
+@media (max-width: 800px) {
+
+    .trail-detail-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .trail-detail:nth-child(2) {
+        border-right: 0;
+    }
+
+    .trail-detail:nth-child(-n+2) {
+        border-bottom: 1px solid rgba(23,33,28,.2);
+    }
+
+    .stage-item {
+        grid-template-columns: 55px 1fr;
+    }
+
+    .stage-stats {
+        grid-column: 2;
+        text-align: left;
+    }
+
+    .vettore-box {
+        padding: 35px 25px;
+    }
+
+}
+
+@media (max-width: 520px) {
+
+    .trail-detail-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .trail-detail {
+        border-right: 0;
+        border-bottom: 1px solid rgba(23,33,28,.2);
+    }
+
+    .trail-detail:last-child {
+        border-bottom: 0;
+    }
+
+    .stage-item {
+        gap: 15px;
+    }
+
+    .stage-stats {
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+}
+</style>
 </head>
+
 
 <body>
 
 <header class="site-header">
-<a class="logo" href="index.html">LYAM <span>ON TRAIL</span></a>
+
+<a class="logo" href="index.html">
+LYAM <span>ON TRAIL</span>
+</a>
 
 <nav class="main-nav">
 <a href="index.html#cammini">Cammini</a>
@@ -25,257 +303,847 @@
 </nav>
 
 <div class="header-right">
+
 <div class="social-icons" aria-label="Social">
-<a href="https://www.instagram.com/lyam.danese" aria-label="Instagram" title="Instagram" class="social-icon" target="_blank" rel="noopener">
+
+<a href="https://www.instagram.com/lyam.danese"
+   aria-label="Instagram"
+   title="Instagram"
+   class="social-icon"
+   target="_blank"
+   rel="noopener">
 <img src="https://cdn.simpleicons.org/instagram/17211c" alt="">
 </a>
 
-<a href="https://www.strava.com/athletes/113927710" aria-label="Strava" title="Strava" class="social-icon" target="_blank" rel="noopener">
+<a href="https://www.strava.com/athletes/113927710"
+   aria-label="Strava"
+   title="Strava"
+   class="social-icon"
+   target="_blank"
+   rel="noopener">
 <img src="https://cdn.simpleicons.org/strava/17211c" alt="">
 </a>
 
-<a href="https://www.komoot.com/it-it/user/556538882209" aria-label="Komoot" title="Komoot" class="social-icon" target="_blank" rel="noopener">
+<a href="https://www.komoot.com/it-it/user/556538882209"
+   aria-label="Komoot"
+   title="Komoot"
+   class="social-icon"
+   target="_blank"
+   rel="noopener">
 <img src="https://cdn.simpleicons.org/komoot/17211c" alt="">
 </a>
+
 </div>
 
 <div class="language-switcher">
 <span class="active">IT</span>
 <span>EN</span>
 </div>
+
 </div>
 </header>
 
 
 <main>
 
+
+<!-- HERO -->
+
 <section class="trail-page-hero">
-<div class="trail-page-hero-image photo-gas"></div>
+
+<div class="trail-page-hero-image"></div>
 <div class="hero-overlay"></div>
 
 <div class="hero-content">
-<p class="eyebrow">APPENNINO CENTRALE · ITALIA</p>
 
-<h1>Grande Anello<br>dei Sibillini</h1>
+<p class="eyebrow">
+APPENNINO CENTRALE · ITALIA · SETTEMBRE 2026
+</p>
 
-<p>Dodici giorni a piedi attraverso i Monti Sibillini.</p>
+<h1>
+Grande Anello<br>
+dei Sibillini
+</h1>
+
+<p>
+Otto giorni a piedi attraverso i Monti Sibillini,
+tra montagne, altopiani, maltempo e imprevisti.
+</p>
+
 </div>
+
 </section>
 
 
+<!-- INTRO -->
+
 <section class="section trail-introduction">
 
-<div class="section-label">GRANDE ANELLO DEI SIBILLINI</div>
+<div class="section-label">
+01 — IL VIAGGIO
+</div>
 
 <div class="intro-grid">
 
 <div>
-<h2>Un grande viaggio<br>tra montagne e altopiani.</h2>
+
+<h2>
+Otto giorni.<br>
+Un grande anello.
+</h2>
+
 </div>
 
 <div class="intro-copy">
+
 <p>
-Il Grande Anello dei Sibillini è un itinerario ad anello che attraversa il cuore dei Monti Sibillini, tra montagne, altopiani, piccoli borghi e paesaggi dell'Appennino centrale.
+Il Grande Anello dei Sibillini è stato il viaggio che mi ha portato
+a camminare per otto giorni consecutivi attraverso il cuore dei
+Monti Sibillini.
 </p>
 
 <p>
-Qui raccolgo la mia esperienza sul percorso, le informazioni utili per organizzare il viaggio, le fotografie e il racconto delle giornate trascorse sul sentiero.
+Ho percorso il cammino in solitaria, affrontando giornate molto
+diverse tra loro: lunghe tappe, dislivello, pioggia, nebbia,
+cambi di programma e alcuni dei paesaggi più belli che abbia
+incontrato durante un cammino.
 </p>
+
+<p>
+Questa pagina raccoglie il percorso così come l'ho vissuto,
+con i dati registrati durante le singole giornate.
+</p>
+
 </div>
 
 </div>
+
 </section>
 
 
-<section class="section trail-details">
+<!-- DATI -->
 
-<div class="section-label">DATI DEL PERCORSO</div>
+<section class="section">
+
+<div class="section-label">
+02 — I NUMERI
+</div>
 
 <div class="trail-detail-grid">
 
-<div>
-<span class="detail-label">DURATA</span>
-<strong>≈ 12 giorni</strong>
+<div class="trail-detail">
+<span class="detail-label">GIORNI</span>
+<strong>8</strong>
 </div>
 
-<div>
+<div class="trail-detail">
 <span class="detail-label">DISTANZA</span>
-<strong>≈ 260 km</strong>
+<strong>164,05 km</strong>
 </div>
 
-<div>
-<span class="detail-label">DISLIVELLO</span>
-<strong>≈ 11.500 m D+</strong>
+<div class="trail-detail">
+<span class="detail-label">DISLIVELLO POSITIVO</span>
+<strong>7.580 m</strong>
 </div>
 
-<div>
-<span class="detail-label">TIPO</span>
-<strong>Itinerario ad anello</strong>
+<div class="trail-detail">
+<span class="detail-label">DISLIVELLO NEGATIVO</span>
+<strong>6.680 m</strong>
 </div>
 
 </div>
+
+<p class="route-note">
+I dati sono quelli registrati nelle otto attività Komoot che compongono
+il mio Grande Anello. La raccolta Komoot comprende inoltre una nona
+attività separata, l'escursione al Monte Vettore.
+</p>
+
 </section>
 
+
+<!-- TAPPE -->
 
 <section class="section">
 
 <div class="section-heading">
+
 <div>
-<div class="section-label">LE TAPPE</div>
-<h2>Giorno dopo giorno.</h2>
+
+<div class="section-label">
+03 — LE TAPPE
 </div>
+
+<h2>
+Giorno dopo giorno.
+</h2>
+
 </div>
+
+<a class="text-link"
+   href="https://www.komoot.com/it-it/collection/4728646/-grande-anello-sibillini"
+   target="_blank"
+   rel="noopener">
+Vedi la raccolta Komoot →
+</a>
+
+</div>
+
 
 <div class="stage-list">
 
-<article>
-<span>01</span>
-<div>
-<h3>Visso → Cupi</h3>
-<p>La partenza del Grande Anello.</p>
+
+<!-- TAPPA 1 -->
+
+<article class="stage-item">
+
+<div class="stage-number">
+01
 </div>
-</article>
 
-<article>
-<span>02</span>
-<div>
-<h3>Cupi → Fiastra</h3>
-<p>Tra montagne e paesaggi dei Sibillini.</p>
-</div>
-</article>
+<div class="stage-content">
 
-<article>
-<span>03</span>
-<div>
-<h3>Fiastra → Garulla</h3>
-<p>Una nuova giornata attraverso l'Appennino.</p>
-</div>
-</article>
-
-<article>
-<span>04</span>
-<div>
-<h3>Garulla → Rubbiano</h3>
-<p>Verso la zona delle Gole dell'Infernaccio.</p>
-</div>
-</article>
-
-<article>
-<span>05</span>
-<div>
-<h3>Rubbiano → Colle</h3>
-<p>Tra sentieri e panorami montani.</p>
-</div>
-</article>
-
-<article>
-<span>06</span>
-<div>
-<h3>Colle → Monte Vettore</h3>
-<p>La salita verso il settore più alto dell'anello.</p>
-</div>
-</article>
-
-<article>
-<span>07</span>
-<div>
-<h3>Monte Vettore → Castelluccio</h3>
-<p>Verso la Piana di Castelluccio.</p>
-</div>
-</article>
-
-<article>
-<span>08</span>
-<div>
-<h3>Castelluccio → Campi</h3>
-<p>Attraversando uno dei paesaggi più iconici dei Sibillini.</p>
-</div>
-</article>
-
-<article>
-<span>09–12</span>
-<div>
-<h3>Rientro verso Visso</h3>
-<p>Le ultime giornate dell'anello.</p>
-</div>
-</article>
-
-</div>
-</section>
-
-
-<section class="quote-section">
-
-<div class="quote-mark">“</div>
-
-<blockquote>
-Il sentiero non è soltanto una linea sulla mappa.<br>
-È tutto quello che succede mentre la percorri.
-</blockquote>
-
-</section>
-
-
-<section class="section">
-
-<div class="section-label">ESPERIENZA</div>
-
-<div class="split-grid">
-
-<div class="large-photo photo-trekking"></div>
-
-<div class="split-copy">
-<h2>Il mio viaggio.</h2>
+<h3>
+Tappa 1
+</h3>
 
 <p>
-Dodici giorni sui Sibillini, tra giornate di sole, pioggia, nebbia e cambi di programma.
+La partenza del viaggio.
+</p>
+
+<a class="stage-link"
+   href="https://www.komoot.com/tour/3259898827"
+   target="_blank"
+   rel="noopener">
+Apri la traccia su Komoot →
+</a>
+
+</div>
+
+<div class="stage-stats">
+
+<span class="stage-stat">
+<small>Distanza</small>
+<strong>17,4 km</strong>
+</span>
+
+<span class="stage-stat">
+<small>Tempo</small>
+<strong>5h 06'</strong>
+</span>
+
+<span class="stage-stat">
+<small>D+</small>
+<strong>860 m</strong>
+</span>
+
+<span class="stage-stat">
+<small>D-</small>
+<strong>470 m</strong>
+</span>
+
+</div>
+
+</article>
+
+
+<!-- TAPPA 2 -->
+
+<article class="stage-item">
+
+<div class="stage-number">
+02
+</div>
+
+<div class="stage-content">
+
+<h3>
+Tappa 2
+</h3>
+
+<p>
+Seconda giornata sui Sibillini.
+</p>
+
+<a class="stage-link"
+   href="https://www.komoot.com/tour/3262493954"
+   target="_blank"
+   rel="noopener">
+Apri la traccia su Komoot →
+</a>
+
+</div>
+
+<div class="stage-stats">
+
+<span class="stage-stat">
+<small>Distanza</small>
+<strong>14,4 km</strong>
+</span>
+
+<span class="stage-stat">
+<small>Tempo</small>
+<strong>5h 26'</strong>
+</span>
+
+<span class="stage-stat">
+<small>D+</small>
+<strong>660 m</strong>
+</span>
+
+<span class="stage-stat">
+<small>D-</small>
+<strong>960 m</strong>
+</span>
+
+</div>
+
+</article>
+
+
+<!-- TAPPA 3 -->
+
+<article class="stage-item">
+
+<div class="stage-number">
+03
+</div>
+
+<div class="stage-content">
+
+<h3>
+Tappa 3
+</h3>
+
+<p>
+Una delle giornate più impegnative del viaggio.
+</p>
+
+<a class="stage-link"
+   href="https://www.komoot.com/it-it/collection/4728646/-grande-anello-sibillini"
+   target="_blank"
+   rel="noopener">
+Apri la raccolta su Komoot →
+</a>
+
+</div>
+
+<div class="stage-stats">
+
+<span class="stage-stat">
+<small>Distanza</small>
+<strong>25,0 km</strong>
+</span>
+
+<span class="stage-stat">
+<small>Tempo</small>
+<strong>8h 19'</strong>
+</span>
+
+<span class="stage-stat">
+<small>D+</small>
+<strong>1.230 m</strong>
+</span>
+
+<span class="stage-stat">
+<small>D-</small>
+<strong>1.000 m</strong>
+</span>
+
+</div>
+
+</article>
+
+
+<!-- TAPPA 4 -->
+
+<article class="stage-item">
+
+<div class="stage-number">
+04
+</div>
+
+<div class="stage-content">
+
+<h3>
+Tappa 4
+</h3>
+
+<p>
+Una lunga giornata tra sentieri e montagne.
+</p>
+
+<a class="stage-link"
+   href="https://www.komoot.com/tour/3267756865"
+   target="_blank"
+   rel="noopener">
+Apri la traccia su Komoot →
+</a>
+
+</div>
+
+<div class="stage-stats">
+
+<span class="stage-stat">
+<small>Distanza</small>
+<strong>25,8 km</strong>
+</span>
+
+<span class="stage-stat">
+<small>Tempo</small>
+<strong>8h 23'</strong>
+</span>
+
+<span class="stage-stat">
+<small>D+</small>
+<strong>1.130 m</strong>
+</span>
+
+<span class="stage-stat">
+<small>D-</small>
+<strong>1.140 m</strong>
+</span>
+
+</div>
+
+</article>
+
+
+<!-- TAPPA 5 -->
+
+<article class="stage-item">
+
+<div class="stage-number">
+05
+</div>
+
+<div class="stage-content">
+
+<h3>
+Tappa 5
+</h3>
+
+<p>
+Una giornata più breve prima del cambio di programma.
+</p>
+
+<a class="stage-link"
+   href="https://www.komoot.com/tour/3269843535"
+   target="_blank"
+   rel="noopener">
+Apri la traccia su Komoot →
+</a>
+
+</div>
+
+<div class="stage-stats">
+
+<span class="stage-stat">
+<small>Distanza</small>
+<strong>14,0 km</strong>
+</span>
+
+<span class="stage-stat">
+<small>Tempo</small>
+<strong>4h 53'</strong>
+</span>
+
+<span class="stage-stat">
+<small>D+</small>
+<strong>690 m</strong>
+</span>
+
+<span class="stage-stat">
+<small>D-</small>
+<strong>550 m</strong>
+</span>
+
+</div>
+
+</article>
+
+
+<!-- TAPPA 6 -->
+
+<article class="stage-item">
+
+<div class="stage-number">
+06
+</div>
+
+<div class="stage-content">
+
+<h3>
+Tappa 6
+</h3>
+
+<p>
+La giornata interrotta dal maltempo.
+</p>
+
+<a class="stage-link"
+   href="https://www.komoot.com/tour/3271956158"
+   target="_blank"
+   rel="noopener">
+Apri la traccia su Komoot →
+</a>
+
+</div>
+
+<div class="stage-stats">
+
+<span class="stage-stat">
+<small>Distanza</small>
+<strong>9,35 km</strong>
+</span>
+
+<span class="stage-stat">
+<small>Tempo</small>
+<strong>3h 04'</strong>
+</span>
+
+<span class="stage-stat">
+<small>D+</small>
+<strong>550 m</strong>
+</span>
+
+<span class="stage-stat">
+<small>D-</small>
+<strong>40 m</strong>
+</span>
+
+</div>
+
+</article>
+
+
+<!-- NOTA MALTEMPO -->
+
+<div class="weather-note">
+
+<h3>
+Quando il meteo cambia i piani.
+</h3>
+
+<p>
+La sesta giornata è stata interrotta a causa del maltempo.
+La traccia Komoot registra 9,35 km e 550 m di dislivello positivo:
+il resto della giornata è proseguito fuori dal percorso previsto,
+con un passaggio in autostop.
+</p>
+
+</div>
+
+
+<!-- TAPPA 7 -->
+
+<article class="stage-item">
+
+<div class="stage-number">
+07
+</div>
+
+<div class="stage-content">
+
+<h3>
+Tappa 7
+</h3>
+
+<p>
+Una delle giornate più lunghe dell'intero cammino.
+</p>
+
+<a class="stage-link"
+   href="https://www.komoot.com/tour/3279919692"
+   target="_blank"
+   rel="noopener">
+Apri la traccia su Komoot →
+</a>
+
+</div>
+
+<div class="stage-stats">
+
+<span class="stage-stat">
+<small>Distanza</small>
+<strong>29,6 km</strong>
+</span>
+
+<span class="stage-stat">
+<small>Tempo</small>
+<strong>9h 50'</strong>
+</span>
+
+<span class="stage-stat">
+<small>D+</small>
+<strong>1.460 m</strong>
+</span>
+
+<span class="stage-stat">
+<small>D-</small>
+<strong>730 m</strong>
+</span>
+
+</div>
+
+</article>
+
+
+<!-- TAPPA 8 -->
+
+<article class="stage-item">
+
+<div class="stage-number">
+08
+</div>
+
+<div class="stage-content">
+
+<h3>
+Tappa 8
+</h3>
+
+<p>
+L'ultima lunga giornata e la conclusione del Grande Anello.
+</p>
+
+<a class="stage-link"
+   href="https://www.komoot.com/it-it/collection/4728646/-grande-anello-sibillini"
+   target="_blank"
+   rel="noopener">
+Apri la raccolta su Komoot →
+</a>
+
+</div>
+
+<div class="stage-stats">
+
+<span class="stage-stat">
+<small>Distanza</small>
+<strong>28,5 km</strong>
+</span>
+
+<span class="stage-stat">
+<small>Tempo</small>
+<strong>9h 10'</strong>
+</span>
+
+<span class="stage-stat">
+<small>D+</small>
+<strong>1.000 m</strong>
+</span>
+
+<span class="stage-stat">
+<small>D-</small>
+<strong>1.790 m</strong>
+</span>
+
+</div>
+
+</article>
+
+
+</div>
+
+</section>
+
+
+<!-- VETTORE -->
+
+<section class="section vettore-section">
+
+<div class="vettore-box">
+
+<div class="section-label">
+GIORNO 9 · ESCURSIONE
+</div>
+
+<h2>
+Monte Vettore.<br>
+Un giorno in più sui Sibillini.
+</h2>
+
+<p>
+Il Monte Vettore avrebbe dovuto essere affrontato durante il
+Grande Anello, ma le condizioni meteo mi hanno costretto a
+rinunciare alla salita durante il cammino.
 </p>
 
 <p>
-Il percorso non è stato soltanto una successione di chilometri e dislivello: sono stati i borghi, gli incontri, la fatica e soprattutto i panorami a rendere questo viaggio speciale.
+Una volta concluso il percorso, sono quindi tornato sui Sibillini
+per recuperare quella salita con un'escursione dedicata.
+Per questo motivo il Vettore non viene considerato una nona tappa
+del Grande Anello: è un'escursione separata, raccontata nella
+sezione Escursioni.
 </p>
 
-<a class="text-link" href="index.html#diario">Leggi il diario →</a>
-</div>
+<div class="vettore-meta">
+
+<span>
+<small>Distanza</small>
+<strong>11,4 km</strong>
+</span>
+
+<span>
+<small>Tempo</small>
+<strong>5h 16'</strong>
+</span>
+
+<span>
+<small>D+</small>
+<strong>1.180 m</strong>
+</span>
+
+<span>
+<small>D-</small>
+<strong>1.160 m</strong>
+</span>
 
 </div>
+
+<a class="button light"
+   href="index.html#escursioni">
+Vai alle escursioni
+</a>
+
+</div>
+
 </section>
 
 
+<!-- RACCOLTA KOMOOT -->
+
 <section class="section">
 
-<div class="section-label">INFORMAZIONI</div>
+<div class="section-label">
+04 — TRACCE
+</div>
 
 <div class="gear-grid">
 
 <div>
-<h2>Prima di partire.</h2>
+<h2>
+Tutte le tracce<br>
+del viaggio.
+</h2>
 </div>
 
 <div>
+
 <p>
-In questa sezione verranno raccolte progressivamente le informazioni pratiche necessarie per organizzare il cammino.
+Ho raccolto su Komoot tutte le attività registrate durante
+il viaggio: le otto tappe del Grande Anello e l'escursione
+successiva sul Monte Vettore.
 </p>
 
 <p>
-Tappe, acqua, punti di appoggio, strutture, tracce GPX, difficoltà e indicazioni utili per affrontare il percorso.
+La raccolta completa permette di consultare le singole tracce,
+i dati delle attività e il percorso registrato.
 </p>
+
+<a class="button dark"
+   href="https://www.komoot.com/it-it/collection/4728646/-grande-anello-sibillini"
+   target="_blank"
+   rel="noopener">
+Apri la raccolta Komoot
+</a>
+
 </div>
 
 </div>
+
 </section>
 
 
+<!-- DIARIO -->
+
+<section class="section">
+
+<div class="section-heading">
+
+<div>
+
+<div class="section-label">
+05 — DIARIO
+</div>
+
+<h2>
+Il viaggio raccontato.
+</h2>
+
+</div>
+
+<a class="text-link"
+   href="index.html#diario">
+Vai al diario →
+</a>
+
+</div>
+
+<div class="intro-grid">
+
+<div>
+
+<h3>
+Otto giorni sul sentiero,
+tra programma e imprevisti.
+</h3>
+
+</div>
+
+<div class="intro-copy">
+
+<p>
+I numeri raccontano solo una parte del viaggio. Nei racconti
+delle singole giornate entreranno il meteo, i panorami, le
+strutture, gli incontri, le difficoltà e le decisioni prese
+lungo il percorso.
+</p>
+
+<p>
+La sesta giornata, in particolare, sarà raccontata come il
+momento in cui il maltempo ha cambiato il programma originale.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SOCIAL -->
+
 <section class="follow-section">
 
-<p class="eyebrow">SEGUI IL VIAGGIO</p>
+<p class="eyebrow">
+SEGUI IL VIAGGIO
+</p>
 
-<h2>Ci vediamo sul sentiero.</h2>
+<h2>
+Ci vediamo sul sentiero.
+</h2>
 
 <div class="footer-socials">
-<a href="https://www.instagram.com/lyam.danese" target="_blank" rel="noopener">Instagram</a>
-<a href="https://www.strava.com/athletes/113927710" target="_blank" rel="noopener">Strava</a>
-<a href="https://www.komoot.com/it-it/user/556538882209" target="_blank" rel="noopener">Komoot</a>
+
+<a href="https://www.instagram.com/lyam.danese"
+   target="_blank"
+   rel="noopener">
+Instagram
+</a>
+
+<a href="https://www.strava.com/athletes/113927710"
+   target="_blank"
+   rel="noopener">
+Strava
+</a>
+
+<a href="https://www.komoot.com/it-it/user/556538882209"
+   target="_blank"
+   rel="noopener">
+Komoot
+</a>
+
 </div>
 
 </section>
@@ -290,6 +1158,7 @@ LYAM <span>ON TRAIL</span>
 </div>
 
 <div class="footer-links">
+
 <a href="index.html#cammini">Cammini</a>
 <a href="index.html#trekking">Trekking</a>
 <a href="index.html#corsa">Corsa</a>
@@ -297,15 +1166,34 @@ LYAM <span>ON TRAIL</span>
 <a href="index.html#attrezzatura">Attrezzatura</a>
 <a href="index.html#diario">Diario</a>
 <a href="index.html#about">Chi sono</a>
+
 </div>
 
 <div class="footer-socials small">
-<a href="https://www.instagram.com/lyam.danese" target="_blank" rel="noopener">Instagram</a>
-<a href="https://www.strava.com/athletes/113927710" target="_blank" rel="noopener">Strava</a>
-<a href="https://www.komoot.com/it-it/user/556538882209" target="_blank" rel="noopener">Komoot</a>
+
+<a href="https://www.instagram.com/lyam.danese"
+   target="_blank"
+   rel="noopener">
+Instagram
+</a>
+
+<a href="https://www.strava.com/athletes/113927710"
+   target="_blank"
+   rel="noopener">
+Strava
+</a>
+
+<a href="https://www.komoot.com/it-it/user/556538882209"
+   target="_blank"
+   rel="noopener">
+Komoot
+</a>
+
 </div>
 
-<p class="copyright">© 2026 LYAM ON TRAIL</p>
+<p class="copyright">
+© 2026 LYAM ON TRAIL
+</p>
 
 </footer>
 
