@@ -20,18 +20,69 @@
 
 
 .running-section { background: var(--paper); max-width: none; }
-.running-section > * { max-width: 1400px; margin-left: auto; margin-right: auto; }
-.running-intro { max-width: 620px !important; margin: -15px auto 55px 5vw !important; }
-.running-intro p { font-family: "Playfair Display", Georgia, serif; font-size: 26px; line-height: 1.25; color: #4e5751; }
-.running-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.running-card { background: var(--cream); }
-.running-photo { aspect-ratio: 1.05 / 1; }
-.running-card-content { padding: 30px; }
-.running-card h3 { font-size: 34px; margin-bottom: 12px; }
-.running-card p:not(.eyebrow) { color: var(--muted); font-size: 14px; max-width: 370px; }
-.photo-road { background: linear-gradient(145deg,#a7aaa0,#69736a 48%,#343d37); }
-.photo-trail { background: linear-gradient(145deg,#9ca795,#5c6e5d 48%,#293a2d); }
-.photo-race { background: linear-gradient(145deg,#aaa18d,#6e7060 48%,#34382d); }
+
+.running-section > * {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.running-intro {
+    max-width: 620px !important;
+    margin: -15px auto 55px 5vw !important;
+}
+
+.running-intro p {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 26px;
+    line-height: 1.25;
+    color: #4e5751;
+}
+
+.running-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.running-card {
+    background: var(--cream);
+}
+
+.running-photo {
+    aspect-ratio: 1.05 / 1;
+}
+
+.running-card-content {
+    padding: 30px;
+}
+
+.running-card h3 {
+    font-size: 34px;
+    margin-bottom: 12px;
+}
+
+.running-card p:not(.eyebrow) {
+    color: var(--muted);
+    font-size: 14px;
+    max-width: 370px;
+}
+
+.photo-road {
+    background: linear-gradient(145deg,#a7aaa0,#69736a 48%,#343d37);
+}
+
+.photo-trail {
+    background: linear-gradient(145deg,#9ca795,#5c6e5d 48%,#293a2d);
+}
+
+.photo-training {
+    background: linear-gradient(145deg,#aaa69b,#77766c 48%,#3e403b);
+}
+
+.photo-race {
+    background: linear-gradient(145deg,#aaa18d,#6e7060 48%,#34382d);
+}
 
 @media(max-width:1000px) {
   .running-grid { grid-template-columns: 1fr; }
