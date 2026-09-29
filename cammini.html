@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Cammini & Trekking — LYAM ON TRAIL</title>
+
+  <meta
+    name="description"
+    content="I cammini e i trekking che ho percorso: itinerari, tappe, dati tecnici, tracce GPX, fotografie e racconti di viaggio."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* =========================================
+       CAMMINI & TREKKING
+       ========================================= */
+
+    .trails-page {
+      background: var(--paper);
+      min-height: 100vh;
+    }
+
+    .trails-hero {
+      padding: 150px 5vw 100px;
+      max-width: 1500px;
+      margin: 0 auto;
+    }
+
+    .trails-eyebrow {
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .trails-hero h1 {
+      max-width: 900px;
+      margin: 0;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(58px, 8vw, 120px);
+      line-height: 0.92;
+      font-weight: 400;
+      letter-spacing: -0.045em;
+      color: var(--ink);
+    }
+
+    .trails-intro {
+      max-width: 650px;
+      margin-top: 42px;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 25px;
+      line-height: 1.35;
+      color: var(--ink);
+    }
+
+    .trails-intro p {
+      margin: 0;
+    }
+
+    .trails-list {
+      padding: 0 5vw 120px;
+      max-width: 1500px;
+      margin: 0 auto;
+    }
+
+    .trails-list-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 42px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .trails-list-header h2 {
+      margin: 0;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 42px;
+      font-weight: 400;
+      letter-spacing: -0.025em;
+    }
+
+    .trails-count {
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .trails-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 70px 32px;
+    }
+
+    .trail-card {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .trail-card-image {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background: linear-gradient(135deg, #d8ddd7, #aeb8ad);
+      margin-bottom: 22px;
+    }
+
+    .trail-card-image::after {
+      content: "FOTO";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(23, 33, 28, 0.38);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+    }
+
+    .trail-card-content {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 30px;
+      align-items: start;
+    }
+
+    .trail-card h3 {
+      margin: 0 0 9px;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 32px;
+      line-height: 1.05;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+    }
+
+    .trail-card p {
+      margin: 0;
+      max-width: 580px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .trail-meta {
+      text-align: right;
+      white-space: nowrap;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.7;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+
+    .trail-meta strong {
+      display: block;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .trail-card:hover h3 {
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 5px;
+    }
+
+    /* Featured GAS */
+
+    .trails-featured {
+      margin: 0 5vw 130px;
+      max-width: 1400px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 5vw;
+    }
+
+    .featured-inner {
+      background: var(--cream);
+      padding: 70px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(260px, 0.6fr);
+      gap: 70px;
+      align-items: end;
+    }
+
+    .featured-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .featured-inner h2 {
+      margin: 0 0 20px;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(42px, 5vw, 72px);
+      line-height: 0.98;
+      font-weight: 400;
+      letter-spacing: -0.035em;
+    }
+
+    .featured-inner p {
+      max-width: 650px;
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .featured-data {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .featured-data div {
+      padding: 18px 12px;
+      border-right: 1px solid var(--line);
+    }
+
+    .featured-data div:last-child {
+      border-right: 0;
+    }
+
+    .featured-data strong {
+      display: block;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--ink);
+    }
+
+    .featured-data span {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+
+    .featured-button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 13px 22px;
+      border: 1px solid var(--ink);
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: 0.2s ease;
+    }
+
+    .featured-button:hover {
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    /* Mobile */
+
+    @media (max-width: 800px) {
+
+      .trails-hero {
+        padding: 110px 6vw 70px;
+      }
+
+      .trails-hero h1 {
+        font-size: clamp(52px, 15vw, 82px);
+      }
+
+      .trails-intro {
+        margin-top: 30px;
+        font-size: 21px;
+      }
+
+      .trails-list {
+        padding: 0 6vw 80px;
+      }
+
+      .trails-list-header {
+        margin-bottom: 30px;
+      }
+
+      .trails-list-header h2 {
+        font-size: 34px;
+      }
+
+      .trails-grid {
+        grid-template-columns: 1fr;
+        gap: 55px;
+      }
+
+      .trail-card-content {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .trail-card h3 {
+        font-size: 29px;
+      }
+
+      .trail-meta {
+        text-align: left;
+      }
+
+      .trails-featured {
+        padding: 0;
+        margin-bottom: 80px;
+      }
+
+      .featured-inner {
+        padding: 45px 6vw;
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .featured-inner h2 {
+        font-size: 46px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header class="site-header">
+
+    <a href="index.html" class="site-logo">
+      LYAM ON TRAIL
+    </a>
+
+    <nav class="site-nav">
+      <a href="cammini.html" class="active">Cammini & Trekking</a>
+      <a href="index.html#corsa">Corsa</a>
+      <a href="index.html#escursioni">Escursioni</a>
+      <a href="index.html#attrezzatura">Attrezzatura</a>
+      <a href="index.html#diario">Diario</a>
+      <a href="index.html#about">Chi sono</a>
+    </nav>
+
+    <div class="site-social">
+      <a href="https://www.instagram.com/lyam.danese" target="_blank" rel="noopener">
+        <img src="https://cdn.simpleicons.org/instagram/17211c" alt="Instagram">
+      </a>
+
+      <a href="https://www.strava.com/athletes/113927710" target="_blank" rel="noopener">
+        <img src="https://cdn.simpleicons.org/strava/17211c" alt="Strava">
+      </a>
+
+      <a href="https://www.komoot.com/it-it/user/556538882209" target="_blank" rel="noopener">
+        <img src="https://cdn.simpleicons.org/komoot/17211c" alt="Komoot">
+      </a>
+    </div>
+
+    <div class="language-switch">
+      <span class="active">IT</span>
+      <span>EN</span>
+    </div>
+
+  </header>
+
+
+  <main class="trails-page">
+
+    <!-- HERO -->
+
+    <section class="trails-hero">
+
+      <div class="trails-eyebrow">
+        CAMMINI · TREKKING · ITALIA · EUROPA
+      </div>
+
+      <h1>
+        Cammini &<br>
+        Trekking
+      </h1>
+
+      <div class="trails-intro">
+        <p>
+          Giorni a piedi, zaino sulle spalle e strade che attraversano
+          montagne, borghi e paesaggi diversi.
+        </p>
+      </div>
+
+    </section>
+
+
+    <!-- ARCHIVIO -->
+
+    <section class="trails-list">
+
+      <div class="trails-list-header">
+        <h2>I percorsi</h2>
+        <span class="trails-count">7 itinerari</span>
+      </div>
+
+
+      <div class="trails-grid">
+
+        <!-- VIA DEGLI DEI -->
+
+        <a href="via-degli-dei.html" class="trail-card">
+
+          <div class="trail-card-image"></div>
+
+          <div class="trail-card-content">
+
+            <div>
+              <h3>Via degli Dei</h3>
+
+              <p>
+                Da Bologna a Firenze attraverso l'Appennino,
+                tra crinali, boschi e antiche vie di collegamento.
+              </p>
+            </div>
+
+            <div class="trail-meta">
+              <strong>Italia</strong>
+              Appennino
+            </div>
+
+          </div>
+
+        </a>
+
+
+        <!-- CAMMINO DEI FORTI -->
+
+        <a href="cammino-dei-forti.html" class="trail-card">
+
+          <div class="trail-card-image"></div>
+
+          <div class="trail-card-content">
+
+            <div>
+              <h3>Cammino dei Forti</h3>
+
+              <p>
+                Un itinerario tra montagne, fortificazioni e paesaggi
+                dell'Appennino emiliano.
+              </p>
+            </div>
+
+            <div class="trail-meta">
+              <strong>Italia</strong>
+              Appennino
+            </div>
+
+          </div>
+
+        </a>
+
+
+        <!-- CAMMINO DI OROPA -->
+
+        <a href="cammino-di-oropa.html" class="trail-card">
+
+          <div class="trail-card-image"></div>
+
+          <div class="trail-card-content">
+
+            <div>
+              <h3>Cammino di Oropa</h3>
+
+              <p>
+                La Serra morenica e le montagne piemontesi lungo
+                il cammino verso il Santuario di Oropa.
+              </p>
+            </div>
+
+            <div class="trail-meta">
+              <strong>Italia</strong>
+              Piemonte
+            </div>
+
+          </div>
+
+        </a>
+
+
+        <!-- VIA DEL SALE -->
+
+        <a href="via-del-sale.html" class="trail-card">
+
+          <div class="trail-card-image"></div>
+
+          <div class="trail-card-content">
+
+            <div>
+              <h3>Via del Sale</h3>
+
+              <p>
+                Antiche vie di crinale tra Piemonte, Liguria ed Emilia,
+                seguendo le storiche strade del commercio del sale.
+              </p>
+            </div>
+
+            <div class="trail-meta">
+              <strong>Italia</strong>
+              Appennino
+            </div>
+
+          </div>
+
+        </a>
+
+
+        <!-- VIA SPLUGA -->
+
+        <a href="via-spluga.html" class="trail-card">
+
+          <div class="trail-card-image"></div>
+
+          <div class="trail-card-content">
+
+            <div>
+              <h3>Via Spluga</h3>
+
+              <p>
+                Un cammino alpino attraverso la Valle Spluga,
+                seguendo uno storico collegamento tra Italia e Svizzera.
+              </p>
+            </div>
+
+            <div class="trail-meta">
+              <strong>Italia · Svizzera</strong>
+              Alpi
+            </div>
+
+          </div>
+
+        </a>
+
+
+        <!-- GRANDE ANELLO DEI SIBILLINI -->
+
+        <a href="gas.html" class="trail-card">
+
+          <div class="trail-card-image"></div>
+
+          <div class="trail-card-content">
+
+            <div>
+              <h3>Grande Anello dei Sibillini</h3>
+
+              <p>
+                Otto giorni attraverso i Monti Sibillini,
+                tra altopiani, montagne, maltempo e imprevisti.
+              </p>
+            </div>
+
+            <div class="trail-meta">
+              <strong>Italia</strong>
+              Marche
+            </div>
+
+          </div>
+
+        </a>
+
+
+        <!-- INTREPIDO LARTH -->
+
+        <a href="intrepido-larth.html" class="trail-card">
+
+          <div class="trail-card-image"></div>
+
+          <div class="trail-card-content">
+
+            <div>
+              <h3>Cammino dell'Intrepido Larth</h3>
+
+              <p>
+                Un percorso tra paesaggi collinari, storia e piccoli
+                centri dell'Italia centrale.
+              </p>
+            </div>
+
+            <div class="trail-meta">
+              <strong>Italia</strong>
+              Toscana
+            </div>
+
+          </div>
+
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- FEATURED GAS -->
+
+    <section class="trails-featured">
+
+      <div class="featured-inner">
+
+        <div>
+
+          <div class="featured-label">
+            Ultimo viaggio · Settembre 2026
+          </div>
+
+          <h2>
+            Grande Anello<br>
+            dei Sibillini
+          </h2>
+
+          <p>
+            Otto giorni a piedi sui Monti Sibillini, tra grandi
+            panorami, cambi di programma, pioggia e nebbia.
+            Un viaggio raccontato tappa dopo tappa.
+          </p>
+
+          <a href="gas.html" class="featured-button">
+            Guarda il percorso
+          </a>
+
+        </div>
+
+
+        <div>
+
+          <div class="featured-data">
+
+            <div>
+              <strong>8</strong>
+              <span>giorni</span>
+            </div>
+
+            <div>
+              <strong>164</strong>
+              <span>km</span>
+            </div>
+
+            <div>
+              <strong>7.580</strong>
+              <span>m D+</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer class="site-footer">
+
+    <div class="footer-social">
+      <a href="https://www.instagram.com/lyam.danese" target="_blank" rel="noopener">
+        Instagram
+      </a>
+
+      <a href="https://www.strava.com/athletes/113927710" target="_blank" rel="noopener">
+        Strava
+      </a>
+
+      <a href="https://www.komoot.com/it-it/user/556538882209" target="_blank" rel="noopener">
+        Komoot
+      </a>
+    </div>
+
+    <nav class="footer-nav">
+      <a href="index.html#cammini">Cammini & Trekking</a>
+      <a href="index.html#corsa">Corsa</a>
+      <a href="index.html#escursioni">Escursioni</a>
+      <a href="index.html#attrezzatura">Attrezzatura</a>
+      <a href="index.html#diario">Diario</a>
+      <a href="index.html#about">Chi sono</a>
+    </nav>
+
+    <div class="footer-copy">
+      © 2026 LYAM ON TRAIL
+    </div>
+
+  </footer>
+
+</body>
+</html>
