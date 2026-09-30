@@ -232,6 +232,18 @@
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .trail-facts {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .trail-fact:nth-child(3) {
+        border-right: 0;
+    }
+
+    .trail-fact:nth-child(-n+3) {
+        border-bottom: 1px solid rgba(23,33,28,.2);
+    }
+
     .trail-detail:nth-child(2) {
         border-right: 0;
     }
@@ -259,6 +271,22 @@
 
     .trail-detail-grid {
         grid-template-columns: 1fr;
+    }
+
+    .trail-facts {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .trail-fact {
+        border-bottom: 1px solid rgba(23,33,28,.2);
+    }
+
+    .trail-fact:nth-child(even) {
+        border-right: 0;
+    }
+
+    .trail-fact:nth-last-child(-n+2) {
+        border-bottom: 0;
     }
 
     .trail-detail {
@@ -424,39 +452,66 @@ con i dati registrati durante le singole giornate.
 
 <section class="section">
 
-<div class="section-label">
-02 — I NUMERI
-</div>
+    <div class="section-label">
+        02 — I NUMERI
+    </div>
 
-<div class="trail-detail-grid">
+    <div class="trail-facts">
 
-<div class="trail-detail">
-<span class="detail-label">GIORNI</span>
-<strong>8</strong>
-</div>
+        <div class="trail-fact">
+            <strong>8</strong>
+            <span>giorni</span>
+        </div>
 
-<div class="trail-detail">
-<span class="detail-label">DISTANZA</span>
-<strong>164,05 km</strong>
-</div>
+        <div class="trail-fact">
+            <strong>≈ 164 km</strong>
+            <span>distanza</span>
+        </div>
 
-<div class="trail-detail">
-<span class="detail-label">DISLIVELLO POSITIVO</span>
-<strong>7.580 m</strong>
-</div>
+        <div class="trail-fact">
+            <strong>≈ 7.600 m</strong>
+            <span>dislivello positivo</span>
+        </div>
 
-<div class="trail-detail">
-<span class="detail-label">DISLIVELLO NEGATIVO</span>
-<strong>6.680 m</strong>
-</div>
+        <div class="trail-fact">
+            <strong>≈ 6.700 m</strong>
+            <span>dislivello negativo</span>
+        </div>
 
-</div>
+        <div class="trail-fact">
+            <strong>Marche · Umbria</strong>
+            <span>regioni</span>
+        </div>
 
-<p class="route-note">
-I dati sono quelli registrati nelle otto attività Komoot che compongono
-il mio Grande Anello. La raccolta Komoot comprende inoltre una nona
-attività separata, l'escursione al Monte Vettore.
-</p>
+        <div class="trail-fact">
+            <strong>E</strong>
+            <span>difficoltà ufficiale</span>
+        </div>
+
+    </div>
+
+    <div class="official-note">
+
+        <div class="detail-label">
+            IL PERCORSO UFFICIALE
+        </div>
+
+        <p>
+            Il Grande Anello dei Sibillini è un itinerario ufficiale
+            articolato in 9 tappe. I dati riportati qui sopra descrivono
+            invece il viaggio così come l'ho effettivamente percorso,
+            in 8 giornate, seguendo una traccia personale con alcune
+            modifiche al percorso originale.
+        </p>
+
+        <p class="route-note">
+            I dati del mio viaggio sono quelli registrati nelle otto
+            attività Komoot che compongono il percorso raccontato in
+            questa pagina. La raccolta comprende inoltre una nona
+            attività separata, l'escursione al Monte Vettore.
+        </p>
+
+    </div>
 
 </section>
 
