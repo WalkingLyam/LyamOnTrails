@@ -334,47 +334,7 @@
         font-size: 46px;
       }
     }
-        /* =========================================
-       HEADER / FOOTER — CAMMINI & TREKKING
-       ========================================= */
-
-    .site-social {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .site-social a {
-      width: 19px;
-      height: 19px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .site-social img {
-      width: 18px;
-      height: 18px;
-      display: block;
-    }
-
-    .site-footer .footer-social {
-      display: flex;
-      justify-content: flex-end;
-      gap: 30px;
-    }
-
-    .site-footer .footer-nav {
-      display: flex;
-      gap: 28px;
-    }
-
-    @media (max-width: 800px) {
-      .site-footer .footer-nav {
-        flex-wrap: wrap;
-        gap: 14px 24px;
-      }
-    }
+    
   </style>
 </head>
 
@@ -384,39 +344,51 @@
 
   <header class="site-header">
 
-    <a href="index.html" class="site-logo">
-      LYAM ON TRAIL
-    </a>
+  <a href="index.html" class="logo">
+    LYAM ON TRAIL
+  </a>
 
-    <nav class="site-nav">
-      <a href="cammini.html" class="active">Cammini & Trekking</a>
-      <a href="index.html#corsa">Corsa</a>
-      <a href="index.html#escursioni">Escursioni</a>
-      <a href="index.html#attrezzatura">Attrezzatura</a>
-      <a href="index.html#diario">Diario</a>
-      <a href="index.html#about">Chi sono</a>
-    </nav>
+  <nav class="main-nav">
+    <a href="cammini.html" class="active">Cammini & Trekking</a>
+    <a href="index.html#corsa">Corsa</a>
+    <a href="index.html#escursioni">Escursioni</a>
+    <a href="index.html#attrezzatura">Attrezzatura</a>
+    <a href="index.html#diario">Diario</a>
+    <a href="index.html#about">Chi sono</a>
+  </nav>
 
-    <div class="site-social">
-      <a href="https://www.instagram.com/lyam.danese" target="_blank" rel="noopener">
+  <div class="header-right">
+
+    <div class="social-icons">
+
+      <a href="https://www.instagram.com/lyam.danese"
+         target="_blank" rel="noopener"
+         class="social-icon">
         <img src="https://cdn.simpleicons.org/instagram/17211c" alt="Instagram">
       </a>
 
-      <a href="https://www.strava.com/athletes/113927710" target="_blank" rel="noopener">
+      <a href="https://www.strava.com/athletes/113927710"
+         target="_blank" rel="noopener"
+         class="social-icon">
         <img src="https://cdn.simpleicons.org/strava/17211c" alt="Strava">
       </a>
 
-      <a href="https://www.komoot.com/it-it/user/556538882209" target="_blank" rel="noopener">
+      <a href="https://www.komoot.com/it-it/user/556538882209"
+         target="_blank" rel="noopener"
+         class="social-icon">
         <img src="https://cdn.simpleicons.org/komoot/17211c" alt="Komoot">
       </a>
+
     </div>
 
-    <div class="language-switch">
+    <div class="language-switcher">
       <span class="active">IT</span>
       <span>EN</span>
     </div>
 
-  </header>
+  </div>
+
+</header>
 
 
   <main class="trails-page">
@@ -711,36 +683,39 @@
 
   <!-- FOOTER -->
 
-  <footer class="site-footer">
+<footer class="site-footer">
 
-    <div class="footer-social">
-      <a href="https://www.instagram.com/lyam.danese" target="_blank" rel="noopener">
-        Instagram
-      </a>
+  <div class="footer-socials">
+    <a href="https://www.instagram.com/lyam.danese"
+       target="_blank" rel="noopener">
+      Instagram
+    </a>
 
-      <a href="https://www.strava.com/athletes/113927710" target="_blank" rel="noopener">
-        Strava
-      </a>
+    <a href="https://www.strava.com/athletes/113927710"
+       target="_blank" rel="noopener">
+      Strava
+    </a>
 
-      <a href="https://www.komoot.com/it-it/user/556538882209" target="_blank" rel="noopener">
-        Komoot
-      </a>
-    </div>
+    <a href="https://www.komoot.com/it-it/user/556538882209"
+       target="_blank" rel="noopener">
+      Komoot
+    </a>
+  </div>
 
-    <nav class="footer-nav">
-      <a href="cammini.html">Cammini & Trekking</a>
-      <a href="corsa.html">Corsa</a>
-      <a href="escursioni.html">Escursioni</a>
-      <a href="attrezzatura.html">Attrezzatura</a>
-      <a href="diario.html">Diario</a>
-      <a href="about.html">Chi sono</a>
-    </nav>
+  <nav class="footer-links">
+    <a href="cammini.html">Cammini & Trekking</a>
+    <a href="index.html#corsa">Corsa</a>
+    <a href="index.html#escursioni">Escursioni</a>
+    <a href="index.html#attrezzatura">Attrezzatura</a>
+    <a href="index.html#diario">Diario</a>
+    <a href="index.html#about">Chi sono</a>
+  </nav>
 
-    <div class="footer-copy">
-      © 2026 LYAM ON TRAIL
-    </div>
+  <div class="copyright">
+    © 2026 LYAM ON TRAIL
+  </div>
 
-  </footer>
+</footer>
 
 </body>
 </html>
