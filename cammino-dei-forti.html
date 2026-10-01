@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="Cammino dei Forti — il mio percorso ad anello nell’Alta Marca, con dati, tappe, esperienza e tracce.">
+
+<title>Cammino dei Forti — LYAM ON TRAIL</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+/* =========================================================
+   VIA DEGLI DEI
+   Stili specifici della pagina
+   ========================================================= */
+
+.trail-page-hero {
+    position: relative;
+    min-height: 72vh;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+}
+
+.trail-page-hero-image {
+    position: absolute;
+    inset: 0;
+    background-image: url("https://images.unsplash.com/photo-1464278533981-50106e6176b1?auto=format&fit=crop&w=2000&q=85");
+    background-size: cover;
+    background-position: center;
+}
+
+.trail-page-hero .hero-overlay {
+    position: absolute;
+    inset: 0;
+}
+
+.trail-page-hero .hero-content {
+    position: relative;
+    z-index: 2;
+    width: min(1200px, 90%);
+    margin: 0 auto;
+    padding: 100px 0 90px;
+    color: white;
+}
+
+.trail-page-hero h1 {
+    font-size: clamp(3rem, 7vw, 6.5rem);
+    line-height: .92;
+    margin: 15px 0 25px;
+}
+
+.trail-page-hero p:not(.eyebrow) {
+    font-size: 1.2rem;
+    max-width: 600px;
+}
+
+.trail-introduction {
+    padding-top: 110px;
+    padding-bottom: 100px;
+}
+
+.trail-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid rgba(23,33,28,.2);
+    border-bottom: 1px solid rgba(23,33,28,.2);
+}
+
+.trail-detail {
+    padding: 55px 25px;
+    border-right: 1px solid rgba(23,33,28,.2);
+}
+
+.trail-detail:last-child {
+    border-right: 0;
+}
+
+.trail-detail span {
+    display: block;
+}
+
+.detail-label {
+    font-size: .72rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    opacity: .65;
+}
+
+.trail-detail strong {
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.route-note {
+    margin-top: 35px;
+    max-width: 720px;
+    opacity: .8;
+}
+
+.stage-list {
+    margin-top: 50px;
+    border-top: 1px solid rgba(23,33,28,.2);
+}
+
+.stage-item {
+    display: grid;
+    grid-template-columns: 90px 1fr auto;
+    gap: 25px;
+    align-items: center;
+    padding: 30px 0;
+    border-bottom: 1px solid rgba(23,33,28,.2);
+}
+
+.stage-number {
+    font-size: .8rem;
+    letter-spacing: .12em;
+    opacity: .55;
+}
+
+.stage-content h3 {
+    margin: 0 0 8px;
+    font-size: 1.35rem;
+}
+
+.stage-content p {
+    margin: 0;
+    opacity: .7;
+}
+
+.stage-stats {
+    display: flex;
+    gap: 24px;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.stage-stat {
+    display: flex;
+    flex-direction: column;
+}
+
+.stage-stat small {
+    font-size: .65rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    opacity: .55;
+}
+
+.stage-stat strong {
+    font-size: .95rem;
+    font-weight: 500;
+    margin-top: 4px;
+}
+
+.stage-link {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: .8rem;
+    text-decoration: underline;
+}
+
+.weather-note {
+    margin: 55px 0 0;
+    padding: 35px;
+    border: 1px solid rgba(23,33,28,.2);
+}
+
+.weather-note h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+.vettore-section {
+    margin-top: 0;
+}
+
+.vettore-box {
+    padding: 60px;
+    background: #17211c;
+    color: white;
+}
+
+.vettore-box h2 {
+    margin-top: 0;
+}
+
+.vettore-box p {
+    max-width: 720px;
+    opacity: .82;
+}
+
+.vettore-meta {
+    display: flex;
+    gap: 35px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.vettore-meta span {
+    display: flex;
+    flex-direction: column;
+}
+
+.vettore-meta small {
+    font-size: .65rem;
+    letter-spacing: .1em;
+    opacity: .6;
+    margin-bottom: 5px;
+}
+
+.vettore-meta strong {
+    font-size: 1.1rem;
+}
+
+.komoot-box {
+    margin-top: 70px;
+    padding: 45px;
+    border: 1px solid rgba(23,33,28,.2);
+}
+
+.komoot-box h3 {
+    margin-top: 0;
+}
+
+@media (max-width: 800px) {
+
+    .trail-detail-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .trail-facts {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .trail-fact:nth-child(3) {
+        border-right: 0;
+    }
+
+    .trail-fact:nth-child(-n+3) {
+        border-bottom: 1px solid rgba(23,33,28,.2);
+    }
+
+    .trail-detail:nth-child(2) {
+        border-right: 0;
+    }
+
+    .trail-detail:nth-child(-n+2) {
+        border-bottom: 1px solid rgba(23,33,28,.2);
+    }
+
+    .stage-item {
+        grid-template-columns: 55px 1fr;
+    }
+
+    .stage-stats {
+        grid-column: 2;
+        text-align: left;
+    }
+
+    .vettore-box {
+        padding: 35px 25px;
+    }
+
+}
+
+@media (max-width: 520px) {
+
+    .trail-detail-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .trail-facts {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .trail-fact {
+        border-bottom: 1px solid rgba(23,33,28,.2);
+    }
+
+    .trail-fact:nth-child(even) {
+        border-right: 0;
+    }
+
+    .trail-fact:nth-last-child(-n+2) {
+        border-bottom: 0;
+    }
+
+    .trail-detail {
+        border-right: 0;
+        border-bottom: 1px solid rgba(23,33,28,.2);
+    }
+
+    .trail-detail:last-child {
+        border-bottom: 0;
+    }
+
+    .stage-item {
+        gap: 15px;
+    }
+
+    .stage-stats {
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+}
+
+.vdd-stage-list { margin-top: 10px; }
+.vdd-stage { padding: 28px 0; border-top: 1px solid rgba(23,33,28,.18); display:grid; grid-template-columns:70px 1fr auto; gap:28px; align-items:start; }
+.vdd-stage:first-child { border-top: 0; }
+.vdd-stage-number { font-family:"Playfair Display",Georgia,serif; font-size:30px; }
+.vdd-stage h3 { font-size:27px; margin:0 0 7px; }
+.vdd-stage p { margin:0; color:var(--muted); max-width:650px; font-size:14px; }
+.vdd-stage-stats { text-align:right; color:var(--muted); font-size:12px; line-height:1.8; white-space:nowrap; }
+.official-source { margin-top:45px; padding-top:22px; border-top:1px solid var(--line); font-size:13px; color:var(--muted); }
+.official-source a { text-decoration:underline; text-underline-offset:4px; }
+@media(max-width:700px){ .vdd-stage{grid-template-columns:45px 1fr; gap:18px;} .vdd-stage-stats{grid-column:2; text-align:left;} }
+</style>
+</head>
+
+<body>
+
+<header class="site-header">
+
+<a class="logo" href="index.html">
+LYAM <span>ON TRAIL</span>
+</a>
+
+<nav class="main-nav">
+<a href="cammini.html">Cammini & Trekking</a>
+<a href="index.html#corsa">Corsa</a>
+<a href="index.html#escursioni">Escursioni</a>
+<a href="index.html#attrezzatura">Attrezzatura</a>
+<a href="index.html#diario">Diario</a>
+<a href="index.html#about">Chi sono</a>
+</nav>
+
+<div class="header-right">
+
+<div class="social-icons" aria-label="Social">
+
+<a href="https://www.instagram.com/lyam.danese"
+   aria-label="Instagram"
+   title="Instagram"
+   class="social-icon"
+   target="_blank"
+   rel="noopener">
+<img src="https://cdn.simpleicons.org/instagram/17211c" alt="">
+</a>
+
+<a href="https://www.strava.com/athletes/113927710"
+   aria-label="Strava"
+   title="Strava"
+   class="social-icon"
+   target="_blank"
+   rel="noopener">
+<img src="https://cdn.simpleicons.org/strava/17211c" alt="">
+</a>
+
+<a href="https://www.komoot.com/it-it/user/556538882209"
+   aria-label="Komoot"
+   title="Komoot"
+   class="social-icon"
+   target="_blank"
+   rel="noopener">
+<img src="https://cdn.simpleicons.org/komoot/17211c" alt="">
+</a>
+
+</div>
+
+<div class="language-switcher">
+<span class="active">IT</span>
+<span>EN</span>
+</div>
+
+</div>
+</header>
+<main>
+
+<section class="trail-page-hero">
+  <div class="trail-page-hero-image" style="background-image:url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=2000&q=85");"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="eyebrow">ALTA MARCA · MARCHE · ITALIA</p>
+    <h1>Cammino dei<br>Forti</h1>
+    <p>Un anello nell'Alta Marca tra borghi, montagne, riserve naturali e antiche fortezze.</p>
+  </div>
+</section>
+
+<section class="section trail-introduction">
+  <div class="section-label">01 — IL CAMMINO</div>
+  <div class="intro-grid">
+    <div><h2>Un anello.<br>Cinque tappe.</h2></div>
+    <div class="intro-copy">
+      <p>Il Cammino dei Forti è un itinerario ad anello con partenza e arrivo a San Severino Marche, nell'Alta Marca.</p>
+      <p>Il percorso ufficiale è articolato in cinque tappe e attraversa luoghi dove natura e storia si incontrano, passando dalla Riserva Naturale Regionale del Monte San Vicino e Canfaito e da numerose fortificazioni storiche.</p>
+      <p>Il sito ufficiale propone alcune varianti, con livelli di difficoltà differenti, soprattutto nella seconda, terza e quinta tappa.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-label">02 — I NUMERI</div>
+  <div class="trail-facts">
+    <div class="trail-fact"><strong>5</strong><span>tappe</span></div>
+    <div class="trail-fact"><strong>≈ 114 km</strong><span>percorso ufficiale*</span></div>
+    <div class="trail-fact"><strong>≈ 5.100 m</strong><span>D+*</span></div>
+    <div class="trail-fact"><strong>Marche</strong><span>regione</span></div>
+    <div class="trail-fact"><strong>Anello</strong><span>partenza e arrivo</span></div>
+    <div class="trail-fact"><strong>—</strong><span>difficoltà generale non indicata</span></div>
+  </div>
+  <div class="official-note">
+    <strong>*Dati indicativi:</strong> distanza e dislivello sono la somma dei dati pubblicati dal sito ufficiale per le cinque tappe, utilizzando la Variante Vinano per la seconda tappa. Le varianti possono modificare distanza, dislivello e difficoltà. Il sito ufficiale non assegna una classificazione unica all'intero cammino.
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-heading">
+    <div class="section-label">03 — IL PERCORSO UFFICIALE</div>
+    <h2>Le cinque tappe.</h2>
+  </div>
+  <div class="vdd-stage-list">
+    <div class="vdd-stage">
+      <div class="vdd-stage-number">01</div>
+      <div><h3>San Severino Marche — Crispiero</h3><p>La prima giornata attraversa Buca d'Aria e il territorio di Serrapetrona fino al caratteristico borgo di Crispiero.</p></div>
+      <div class="vdd-stage-stats">14,5 km<br>+839 m · −470 m</div>
+    </div>
+    <div class="vdd-stage">
+      <div class="vdd-stage-number">02</div>
+      <div><h3>Crispiero — Rastia</h3><p>Una tappa nel territorio del Monte San Vicino e Canfaito. Il sito ufficiale propone la Variante Vinano, indicata come facile, e la Variante Rotis, indicata come esperta.</p></div>
+      <div class="vdd-stage-stats">29 km · Vinano<br>+1.134 m · −1.208 m<br>29,6 km · Rotis</div>
+    </div>
+    <div class="vdd-stage">
+      <div class="vdd-stage-number">03</div>
+      <div><h3>Rastia — Elcito</h3><p>La tappa attraversa il territorio ai piedi del Monte San Vicino e propone la variante Monte Pulcino, classificata dal sito ufficiale come esperta e comprensiva della salita facoltativa alla vetta del San Vicino.</p></div>
+      <div class="vdd-stage-stats">20,2 km<br>+1.458 m · −1.078 m<br>Monte Pulcino · esperto</div>
+    </div>
+    <div class="vdd-stage">
+      <div class="vdd-stage-number">04</div>
+      <div><h3>Elcito — Pitino</h3><p>Una giornata dedicata alla storia del territorio, con la Torre di Aliforni, il Castello di Serralta e il Castello di Pitino lungo il percorso.</p></div>
+      <div class="vdd-stage-stats">24,2 km<br>+891 m · −1.118 m</div>
+    </div>
+    <div class="vdd-stage">
+      <div class="vdd-stage-number">05</div>
+      <div><h3>Pitino — San Severino Marche</h3><p>L'ultima tappa chiude l'anello tornando a San Severino. È disponibile anche la Variante Glorioso, più breve e indicata come facile dal sito ufficiale.</p></div>
+      <div class="vdd-stage-stats">26,2 km<br>+805 m · −1.158 m<br>12,5 km · Glorioso</div>
+    </div>
+  </div>
+  <div class="official-source">Dati delle tappe: <a href="https://www.camminodeiforti.it/le-tappe/" target="_blank" rel="noopener">sito ufficiale del Cammino dei Forti</a>. La segnaletica del Cammino non è presente nella Riserva del Monte San Vicino e Canfaito: il sito ufficiale indica di seguire la segnaletica CAI e di utilizzare mappa ufficiale e tracce GPX.</div>
+</section>
+
+<section class="section">
+  <div class="section-label">04 — TRACCE E MAPPA</div>
+  <div class="gear-grid">
+    <div><h2>La traccia<br>del cammino.</h2></div>
+    <div class="intro-copy">
+      <p>Il sito ufficiale mette a disposizione gratuitamente le tracce GPX delle cinque tappe e la mappa ufficiale del percorso.</p>
+      <a class="button dark" href="https://www.camminodeiforti.it/" target="_blank" rel="noopener">Sito ufficiale</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-label">05 — IL MIO VIAGGIO</div>
+  <div class="intro-grid">
+    <div><h2>Il percorso<br>come l'ho vissuto.</h2></div>
+    <div class="intro-copy">
+      <p>Questa sezione sarà dedicata alle mie giornate sul Cammino dei Forti: tappe effettive, tempi, luoghi attraversati, sensazioni e eventuali variazioni rispetto al percorso ufficiale.</p>
+      <p>Le informazioni personali saranno mantenute separate dai dati ufficiali del cammino.</p>
+    </div>
+  </div>
+</section>
+
+<section class="follow-section">
+  <p class="section-label">SEGUI IL VIAGGIO</p>
+  <h2>Ci vediamo sul sentiero.</h2>
+  <div class="footer-socials">
+    <a href="https://www.instagram.com/lyam.danese" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.strava.com/athletes/113927710" target="_blank" rel="noopener">Strava</a>
+    <a href="https://www.komoot.com/it-it/user/556538882209" target="_blank" rel="noopener">Komoot</a>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+
+<div class="footer-brand">
+LYAM <span>ON TRAIL</span>
+</div>
+
+<div class="footer-links">
+
+<a href="cammini.html">Cammini & Trekking</a>
+<a href="index.html#corsa">Corsa</a>
+<a href="index.html#escursioni">Escursioni</a>
+<a href="index.html#attrezzatura">Attrezzatura</a>
+<a href="index.html#diario">Diario</a>
+<a href="index.html#about">Chi sono</a>
+
+</div>
+
+<div class="footer-socials small">
+
+<a href="https://www.instagram.com/lyam.danese"
+   target="_blank"
+   rel="noopener">
+Instagram
+</a>
+
+<a href="https://www.strava.com/athletes/113927710"
+   target="_blank"
+   rel="noopener">
+Strava
+</a>
+
+<a href="https://www.komoot.com/it-it/user/556538882209"
+   target="_blank"
+   rel="noopener">
+Komoot
+</a>
+
+</div>
+
+<p class="copyright">
+© 2026 LYAM ON TRAIL
+</p>
+
+</footer>
+
+
+</body>
+</html>
