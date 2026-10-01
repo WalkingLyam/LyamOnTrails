@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="Via del Sale — il mio viaggio lungo l’antica via tra Varzi e Portofino, con dati delle tappe, esperienza e tracce.">
+
+<title>Via del Sale — LYAM ON TRAIL</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+/* =========================================================
+   VIA DEL SALE
+   Stili specifici della pagina
+   ========================================================= */
+
+.trail-page-hero {
+    position: relative;
+    min-height: 72vh;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+}
+
+.trail-page-hero-image {
+    position: absolute;
+    inset: 0;
+    background-image: url("https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&fit=crop&w=2000&q=85");
+    background-size: cover;
+    background-position: center;
+}
+
+.trail-page-hero .hero-overlay {
+    position: absolute;
+    inset: 0;
+}
+
+.trail-page-hero .hero-content {
+    position: relative;
+    z-index: 2;
+    width: min(1200px, 90%);
+    margin: 0 auto;
+    padding: 100px 0 90px;
+    color: white;
+}
+
+.trail-page-hero h1 {
+    font-size: clamp(3rem, 7vw, 6.5rem);
+    line-height: .92;
+    margin: 15px 0 25px;
+}
+
+.trail-page-hero p:not(.eyebrow) {
+    font-size: 1.2rem;
+    max-width: 600px;
+}
+
+.trail-introduction {
+    padding-top: 110px;
+    padding-bottom: 100px;
+}
+
+.trail-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid rgba(23,33,28,.2);
+    border-bottom: 1px solid rgba(23,33,28,.2);
+}
+
+.trail-detail {
+    padding: 55px 25px;
+    border-right: 1px solid rgba(23,33,28,.2);
+}
+
+.trail-detail:last-child {
+    border-right: 0;
+}
+
+.trail-detail span {
+    display: block;
+}
+
+.detail-label {
+    font-size: .72rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    opacity: .65;
+}
+
+.trail-detail strong {
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.route-note {
+    margin-top: 35px;
+    max-width: 720px;
+    opacity: .8;
+}
+
+.stage-list {
+    margin-top: 50px;
+    border-top: 1px solid rgba(23,33,28,.2);
+}
+
+.stage-item {
+    display: grid;
+    grid-template-columns: 90px 1fr auto;
+    gap: 25px;
+    align-items: center;
+    padding: 30px 0;
+    border-bottom: 1px solid rgba(23,33,28,.2);
+}
+
+.stage-number {
+    font-size: .8rem;
+    letter-spacing: .12em;
+    opacity: .55;
+}
+
+.stage-content h3 {
+    margin: 0 0 8px;
+    font-size: 1.35rem;
+}
+
+.stage-content p {
+    margin: 0;
+    opacity: .7;
+}
+
+.stage-stats {
+    display: flex;
+    gap: 24px;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.stage-stat {
+    display: flex;
+    flex-direction: column;
+}
+
+.stage-stat small {
+    font-size: .65rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    opacity: .55;
+}
+
+.stage-stat strong {
+    font-size: .95rem;
+    font-weight: 500;
+    margin-top: 4px;
+}
+
+.stage-link {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: .8rem;
+    text-decoration: underline;
+}
+
+.weather-note {
+    margin: 55px 0 0;
+    padding: 35px;
+    border: 1px solid rgba(23,33,28,.2);
+}
+
+.weather-note h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+.vettore-section {
+    margin-top: 0;
+}
+
+.vettore-box {
+    padding: 60px;
+    background: #17211c;
+    color: white;
+}
+
+.vettore-box h2 {
+    margin-top: 0;
+}
+
+.vettore-box p {
+    max-width: 720px;
+    opacity: .82;
+}
+
+.vettore-meta {
+    display: flex;
+    gap: 35px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.vettore-meta span {
+    display: flex;
+    flex-direction: column;
+}
+
+.vettore-meta small {
+    font-size: .65rem;
+    letter-spacing: .1em;
+    opacity: .6;
+    margin-bottom: 5px;
+}
+
+.vettore-meta strong {
+    font-size: 1.1rem;
+}
+
+.komoot-box {
+    margin-top: 70px;
+    padding: 45px;
+    border: 1px solid rgba(23,33,28,.2);
+}
+
+.komoot-box h3 {
+    margin-top: 0;
+}
+
+@media (max-width: 800px) {
+
+    .trail-detail-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .trail-facts {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .trail-fact:nth-child(3) {
+        border-right: 0;
+    }
+
+    .trail-fact:nth-child(-n+3) {
+        border-bottom: 1px solid rgba(23,33,28,.2);
+    }
+
+    .trail-detail:nth-child(2) {
+        border-right: 0;
+    }
+
+    .trail-detail:nth-child(-n+2) {
+        border-bottom: 1px solid rgba(23,33,28,.2);
+    }
+
+    .stage-item {
+        grid-template-columns: 55px 1fr;
+    }
+
+    .stage-stats {
+        grid-column: 2;
+        text-align: left;
+    }
+
+    .vettore-box {
+        padding: 35px 25px;
+    }
+
+}
+
+@media (max-width: 520px) {
+
+    .trail-detail-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .trail-facts {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .trail-fact {
+        border-bottom: 1px solid rgba(23,33,28,.2);
+    }
+
+    .trail-fact:nth-child(even) {
+        border-right: 0;
+    }
+
+    .trail-fact:nth-last-child(-n+2) {
+        border-bottom: 0;
+    }
+
+    .trail-detail {
+        border-right: 0;
+        border-bottom: 1px solid rgba(23,33,28,.2);
+    }
+
+    .trail-detail:last-child {
+        border-bottom: 0;
+    }
+
+    .stage-item {
+        gap: 15px;
+    }
+
+    .stage-stats {
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+}
+</style>
+</head>
+
+
+<body>
+
+<header class="site-header">
+
+<a class="logo" href="index.html">
+LYAM <span>ON TRAIL</span>
+</a>
+
+<nav class="main-nav">
+<a href="cammini.html">Cammini & Trekking</a>
+<a href="index.html#corsa">Corsa</a>
+<a href="index.html#escursioni">Escursioni</a>
+<a href="index.html#attrezzatura">Attrezzatura</a>
+<a href="index.html#diario">Diario</a>
+<a href="index.html#about">Chi sono</a>
+</nav>
+
+<div class="header-right">
+
+<div class="social-icons" aria-label="Social">
+
+<a href="https://www.instagram.com/lyam.danese"
+   aria-label="Instagram"
+   title="Instagram"
+   class="social-icon"
+   target="_blank"
+   rel="noopener">
+<img src="https://cdn.simpleicons.org/instagram/17211c" alt="">
+</a>
+
+<a href="https://www.strava.com/athletes/113927710"
+   aria-label="Strava"
+   title="Strava"
+   class="social-icon"
+   target="_blank"
+   rel="noopener">
+<img src="https://cdn.simpleicons.org/strava/17211c" alt="">
+</a>
+
+<a href="https://www.komoot.com/it-it/user/556538882209"
+   aria-label="Komoot"
+   title="Komoot"
+   class="social-icon"
+   target="_blank"
+   rel="noopener">
+<img src="https://cdn.simpleicons.org/komoot/17211c" alt="">
+</a>
+
+</div>
+
+<div class="language-switcher">
+<span class="active">IT</span>
+<span>EN</span>
+</div>
+
+</div>
+</header>
+
+
+
+<main>
+
+<!-- HERO -->
+<section class="trail-page-hero">
+<div class="trail-page-hero-image"></div>
+<div class="hero-overlay"></div>
+<div class="hero-content">
+<p class="eyebrow">APPENNINO SETTENTRIONALE · ITALIA</p>
+<h1>Via del Sale</h1>
+<p>Da Varzi a Portofino, seguendo antiche vie commerciali tra crinali appenninici, boschi e il Mar Ligure.</p>
+</div>
+</section>
+
+<!-- INTRO -->
+<section class="section trail-introduction">
+<div class="section-label">01 — IL VIAGGIO</div>
+<div class="intro-grid">
+<div><h2>Dal crinale.<br>Al mare.</h2></div>
+<div class="intro-copy">
+<p>La Via del Sale collega Varzi, nell'Oltrepò Pavese, a Portofino attraverso l'Appennino settentrionale e le antiche mulattiere utilizzate per il trasporto del sale.</p>
+<p>Il percorso ufficiale è organizzato in quattro tappe e attraversa un paesaggio che cambia progressivamente: dai boschi e dai crinali dell'entroterra fino alla costa ligure e al Parco di Portofino.</p>
+<p>Questa pagina raccoglie il percorso ufficiale e, dove disponibili, i dati e i racconti del mio viaggio.</p>
+</div>
+</div>
+</section>
+
+<!-- DATI -->
+<section class="section">
+<div class="section-label">02 — I NUMERI</div>
+<div class="trail-facts">
+<div class="trail-fact"><strong>4</strong><span>tappe</span></div>
+<div class="trail-fact"><strong>≈ 89 km</strong><span>distanza ufficiale</span></div>
+<div class="trail-fact"><strong>≈ 4.900 m</strong><span>dislivello positivo</span></div>
+<div class="trail-fact"><strong>≈ 5.300 m</strong><span>dislivello negativo</span></div>
+<div class="trail-fact"><strong>Lombardia · Piemonte<br>Emilia-Romagna · Liguria</strong><span>regioni attraversate</span></div>
+<div class="trail-fact"><strong>—</strong><span>difficoltà non indicata dalla fonte ufficiale</span></div>
+</div>
+<div class="official-note">
+<div class="detail-label">IL PERCORSO UFFICIALE</div>
+<p>Il sito ufficiale presenta la Via del Sale da Varzi a Portofino in quattro tappe: Varzi–Capanne di Cosola, Capanne di Cosola–Torriglia, Torriglia–Colle Caprile/Uscio e Colle Caprile/Uscio–Portofino.</p>
+<p class="route-note">La somma dei dati ufficiali delle quattro tappe è di circa 89 km, 4.900 m di dislivello positivo e 5.322 m di dislivello negativo. Il portale turistico ligure indica complessivamente circa 90 km.</p>
+</div>
+</section>
+
+<!-- TAPPE -->
+<section class="section">
+<div class="section-heading">
+<div><div class="section-label">03 — LE TAPPE</div><h2>Quattro giorni<br>tra Appennino e mare.</h2></div>
+<div class="section-intro"><p>Il percorso ufficiale è diviso in quattro tappe. I dati riportati sono quelli pubblicati dall'associazione che cura il progetto Le Vie del Sale.</p></div>
+</div>
+
+<div class="stage-list">
+
+<div class="stage-item">
+<div class="stage-number">01</div>
+<div class="stage-main">
+<h3>Varzi → Capanne di Cosola</h3>
+<p>La tappa più impegnativa per dislivello. Dal borgo di Varzi si sale attraverso boschi e crinali fino al Monte Chiappo, punto più alto dell'itinerario a 1.701 m, prima della discesa verso Capanne di Cosola.</p>
+</div>
+<div class="stage-stats"><span>21 km</span><span>+1.700 m</span><span>−630 m</span></div>
+</div>
+
+<div class="stage-item">
+<div class="stage-number">02</div>
+<div class="stage-main">
+<h3>Capanne di Cosola → Torriglia</h3>
+<p>Una lunga traversata sul crinale, passando per il Monte Cavalmurone, il Monte Antola e gli spartiacque tra Piemonte, Liguria ed Emilia-Romagna, fino alla discesa verso Torriglia.</p>
+</div>
+<div class="stage-stats"><span>24 km</span><span>+1.050 m</span><span>−1.780 m</span></div>
+</div>
+
+<div class="stage-item">
+<div class="stage-number">03</div>
+<div class="stage-main">
+<h3>Torriglia → Colle Caprile / Uscio</h3>
+<p>Dal territorio dell'Antola verso l'entroterra genovese, tra boschi, crinali e tratti panoramici. Avvicinandosi alla costa, il percorso offre una prima vista aperta sul Mar Ligure.</p>
+</div>
+<div class="stage-stats"><span>23 km</span><span>+1.100 m</span><span>−1.412 m</span></div>
+</div>
+
+<div class="stage-item">
+<div class="stage-number">04</div>
+<div class="stage-main">
+<h3>Colle Caprile / Uscio → Portofino</h3>
+<p>L'ultima tappa porta progressivamente verso il mare, passando da Ruta di Camogli e Portofino Vetta prima della discesa finale nel centro di Portofino.</p>
+</div>
+<div class="stage-stats"><span>21 km</span><span>+1.050 m</span><span>−1.500 m</span></div>
+</div>
+
+</div>
+</section>
+
+<!-- VARIANTI -->
+<section class="section">
+<div class="section-heading">
+<div><div class="section-label">04 — VARIANTI</div><h2>Più finali.<br>Stessa via.</h2></div>
+<div class="section-intro"><p>Dalla zona di Colle Caprile e Uscio il percorso può essere prolungato o modificato scegliendo diverse destinazioni sulla costa ligure.</p></div>
+</div>
+<div class="trail-detail-grid">
+<div class="trail-detail"><div class="detail-label">ARRIVO PRINCIPALE</div><strong>Portofino</strong><p>Il tracciato ufficiale della quarta tappa raggiunge il centro di Portofino.</p></div>
+<div class="trail-detail"><div class="detail-label">VARIANTE 4A</div><strong>San Fruttuoso</strong><p>Variante ufficiale indicata dal sito del percorso.</p></div>
+<div class="trail-detail"><div class="detail-label">VARIANTI 4B–4E</div><strong>Santa Margherita · Camogli · Recco · Sori</strong><p>Il sito ufficiale indica anche queste alternative di arrivo dalla zona di Colle Caprile/Uscio.</p></div>
+</div>
+</section>
+
+<!-- TRACCE -->
+<section class="section">
+<div class="section-heading">
+<div><div class="section-label">05 — TRACCE & MAPPA</div><h2>Segui il percorso.</h2></div>
+<div class="section-intro"><p>Il sito ufficiale mette a disposizione le tracce GPX delle singole tappe e segnala che in alcuni tratti la copertura cellulare e il segnale GPS possono essere assenti.</p></div>
+</div>
+<div class="komoot-box">
+<h3>Le Vie del Sale — sito ufficiale</h3>
+<p>Tracce GPX, mappe, tappe, punti acqua e ristoro e informazioni sull'ospitalità sono disponibili sul portale ufficiale.</p>
+<a class="button" href="https://www.leviedelsale.org/itinerario-via-del-sale.html" target="_blank" rel="noopener">Vai al percorso ufficiale</a>
+</div>
+</section>
+
+<!-- ESPERIENZA -->
+<section class="section">
+<div class="section-label">06 — LA MIA ESPERIENZA</div>
+<div class="intro-grid">
+<div><h2>Il viaggio<br>vissuto a piedi.</h2></div>
+<div class="intro-copy">
+<p>Qui raccoglierò le giornate effettivamente percorse, con chilometri, tempi, dislivelli, fotografie e le eventuali modifiche rispetto al percorso ufficiale.</p>
+<p>Le informazioni personali verranno mantenute separate dai dati ufficiali del cammino, così da rendere chiara la differenza tra itinerario originale e traccia realmente percorsa.</p>
+</div>
+</div>
+</section>
+
+<!-- FOLLOW -->
+<section class="section follow-section">
+<div class="section-label">07 — SEGUIMI</div>
+<h2>Altri percorsi,<br>altre storie.</h2>
+<div class="follow-links">
+<a href="https://www.instagram.com/lyam.danese" target="_blank" rel="noopener">Instagram</a>
+<a href="https://www.strava.com/athletes/113927710" target="_blank" rel="noopener">Strava</a>
+<a href="https://www.komoot.com/it-it/user/556538882209" target="_blank" rel="noopener">Komoot</a>
+</div>
+</section>
+
+</main>
+
+
+
+<footer class="site-footer">
+
+<div class="footer-brand">
+LYAM <span>ON TRAIL</span>
+</div>
+
+<div class="footer-links">
+
+<a href="cammini.html">Cammini & Trekking</a>
+<a href="index.html#corsa">Corsa</a>
+<a href="index.html#escursioni">Escursioni</a>
+<a href="index.html#attrezzatura">Attrezzatura</a>
+<a href="index.html#diario">Diario</a>
+<a href="index.html#about">Chi sono</a>
+
+</div>
+
+<div class="footer-socials small">
+
+<a href="https://www.instagram.com/lyam.danese"
+   target="_blank"
+   rel="noopener">
+Instagram
+</a>
+
+<a href="https://www.strava.com/athletes/113927710"
+   target="_blank"
+   rel="noopener">
+Strava
+</a>
+
+<a href="https://www.komoot.com/it-it/user/556538882209"
+   target="_blank"
+   rel="noopener">
+Komoot
+</a>
+
+</div>
+
+<p class="copyright">
+© 2026 LYAM ON TRAIL
+</p>
+
+</footer>
+
+</body>
+</html>
