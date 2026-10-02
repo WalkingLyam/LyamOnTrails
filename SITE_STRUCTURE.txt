@@ -1,0 +1,27 @@
+LYAM ON TRAIL — STRUTTURA DEFINITIVA
+
+Pagine principali:
+index.html
+cammini.html
+corsa.html
+escursioni.html
+attrezzatura.html
+diario.html
+chi-sono.html
+
+Cammini:
+gas.html
+via-degli-dei.html
+cammino-dei-forti.html
+cammino-di-oropa.html
+via-del-sale.html
+via-spluga.html
+intrepido-larth.html
+
+Da completare successivamente:
+- fotografie
+- testi personali
+- dati personali corsa/escursioni
+- GPX personali
+- dominio reale in robots.txt e sitemap.xml
+- versione EN
