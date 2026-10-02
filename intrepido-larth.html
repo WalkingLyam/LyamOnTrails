@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="Cammino dell’Intrepido Larth — il percorso ad anello tra Orvieto, Bolsena e Civita di Bagnoregio, con tappe, dati tecnici e racconto.">
+
+<title>Cammino dell’Intrepido Larth — LYAM ON TRAIL — LYAM ON TRAIL</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+/* =========================================================
+   GRANDE ANELLO DEI SIBILLINI
+   Stili specifici della pagina
+   ========================================================= */
+
+.trail-page-hero {
+    position: relative;
+    min-height: 72vh;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+}
+
+.trail-page-hero-image {
+    position: absolute;
+    inset: 0;
+    background-image: url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=2000&q=85");
+    background-size: cover;
+    background-position: center;
+}
+
+.trail-page-hero .hero-overlay {
+    position: absolute;
+    inset: 0;
+}
+
+.trail-page-hero .hero-content {
+    position: relative;
+    z-index: 2;
+    width: min(1200px, 90%);
+    margin: 0 auto;
+    padding: 100px 0 90px;
+    color: white;
+}
+
+.trail-page-hero h1 {
+    font-size: clamp(3rem, 7vw, 6.5rem);
+    line-height: .92;
+    margin: 15px 0 25px;
+}
+
+.trail-page-hero p:not(.eyebrow) {
+    font-size: 1.2rem;
+    max-width: 600px;
+}
+
+.trail-introduction {
+    padding-top: 110px;
+    padding-bottom: 100px;
+}
+
+.trail-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid rgba(23,33,28,.2);
+    border-bottom: 1px solid rgba(23,33,28,.2);
+}
+
+.trail-detail {
+    padding: 55px 25px;
+    border-right: 1px solid rgba(23,33,28,.2);
+}
+
+.trail-detail:last-child {
+    border-right: 0;
+}
+
+.trail-detail span {
+    display: block;
+}
+
+.detail-label {
+    font-size: .72rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    opacity: .65;
+}
+
+.trail-detail strong {
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.route-note {
+    margin-top: 35px;
+    max-width: 720px;
+    opacity: .8;
+}
+
+.stage-list {
+    margin-top: 50px;
+    border-top: 1px solid rgba(23,33,28,.2);
+}
+
+.stage-item {
+    display: grid;
+    grid-template-columns: 90px 1fr auto;
+    gap: 25px;
+    align-items: center;
+    padding: 30px 0;
+    border-bottom: 1px solid rgba(23,33,28,.2);
+}
+
+.stage-number {
+    font-size: .8rem;
+    letter-spacing: .12em;
+    opacity: .55;
+}
+
+.stage-content h3 {
+    margin: 0 0 8px;
+    font-size: 1.35rem;
+}
+
+.stage-content p {
+    margin: 0;
+    opacity: .7;
+}
+
+.stage-stats {
+    display: flex;
+    gap: 24px;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.stage-stat {
+    display: flex;
+    flex-direction: column;
+}
+
+.stage-stat small {
+    font-size: .65rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    opacity: .55;
+}
+
+.stage-stat strong {
+    font-size: .95rem;
+    font-weight: 500;
+    margin-top: 4px;
+}
+
+.stage-link {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: .8rem;
+    text-decoration: underline;
+}
+
+.weather-note {
+    margin: 55px 0 0;
+    padding: 35px;
+    border: 1px solid rgba(23,33,28,.2);
+}
+
+.weather-note h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+.vettore-section {
+    margin-top: 0;
+}
+
+.vettore-box {
+    padding: 60px;
+    background: #17211c;
+    color: white;
+}
+
+.vettore-box h2 {
+    margin-top: 0;
+}
+
+.vettore-box p {
+    max-width: 720px;
+    opacity: .82;
+}
+
+.vettore-meta {
+    display: flex;
+    gap: 35px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.vettore-meta span {
+    display: flex;
+    flex-direction: column;
+}
+
+.vettore-meta small {
+    font-size: .65rem;
+    letter-spacing: .1em;
+    opacity: .6;
+    margin-bottom: 5px;
+}
+
+.vettore-meta strong {
+    font-size: 1.1rem;
+}
+
+.komoot-box {
+    margin-top: 70px;
+    padding: 45px;
+    border: 1px solid rgba(23,33,28,.2);
+}
+
+.komoot-box h3 {
+    margin-top: 0;
+}
+
+@media (max-width: 800px) {
+
+    .trail-detail-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .trail-facts {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .trail-fact:nth-child(3) {
+        border-right: 0;
+    }
+
+    .trail-fact:nth-child(-n+3) {
+        border-bottom: 1px solid rgba(23,33,28,.2);
+    }
+
+    .trail-detail:nth-child(2) {
+        border-right: 0;
+    }
+
+    .trail-detail:nth-child(-n+2) {
+        border-bottom: 1px solid rgba(23,33,28,.2);
+    }
+
+    .stage-item {
+        grid-template-columns: 55px 1fr;
+    }
+
+    .stage-stats {
+        grid-column: 2;
+        text-align: left;
+    }
+
+    .vettore-box {
+        padding: 35px 25px;
+    }
+
+}
+
+@media (max-width: 520px) {
+
+    .trail-detail-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .trail-facts {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .trail-fact {
+        border-bottom: 1px solid rgba(23,33,28,.2);
+    }
+
+    .trail-fact:nth-child(even) {
+        border-right: 0;
+    }
+
+    .trail-fact:nth-last-child(-n+2) {
+        border-bottom: 0;
+    }
+
+    .trail-detail {
+        border-right: 0;
+        border-bottom: 1px solid rgba(23,33,28,.2);
+    }
+
+    .trail-detail:last-child {
+        border-bottom: 0;
+    }
+
+    .stage-item {
+        gap: 15px;
+    }
+
+    .stage-stats {
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+}
+</style>
+</head>
+
+
+<body>
+
+<header class="site-header">
+
+<a class="logo" href="index.html">
+LYAM <span>ON TRAIL</span>
+</a>
+
+<nav class="main-nav">
+<a href="cammini.html">Cammini & Trekking</a>
+<a href="index.html#corsa">Corsa</a>
+<a href="index.html#escursioni">Escursioni</a>
+<a href="index.html#attrezzatura">Attrezzatura</a>
+<a href="index.html#diario">Diario</a>
+<a href="index.html#about">Chi sono</a>
+</nav>
+
+<div class="header-right">
+
+<div class="social-icons" aria-label="Social">
+
+<a href="https://www.instagram.com/lyam.danese"
+   aria-label="Instagram"
+   title="Instagram"
+   class="social-icon"
+   target="_blank"
+   rel="noopener">
+<img src="https://cdn.simpleicons.org/instagram/17211c" alt="">
+</a>
+
+<a href="https://www.strava.com/athletes/113927710"
+   aria-label="Strava"
+   title="Strava"
+   class="social-icon"
+   target="_blank"
+   rel="noopener">
+<img src="https://cdn.simpleicons.org/strava/17211c" alt="">
+</a>
+
+<a href="https://www.komoot.com/it-it/user/556538882209"
+   aria-label="Komoot"
+   title="Komoot"
+   class="social-icon"
+   target="_blank"
+   rel="noopener">
+<img src="https://cdn.simpleicons.org/komoot/17211c" alt="">
+</a>
+
+</div>
+
+<div class="language-switcher">
+<span class="active">IT</span>
+<span>EN</span>
+</div>
+
+</div>
+</header>
+
+
+<main>
+<section class="trail-page-hero">
+  <div class="trail-page-hero-image" style="background-image:url('https://images.unsplash.com/photo-1464278533981-50106e6176b1?auto=format&fit=crop&w=2200&q=85');"></div>
+  <div class="trail-page-hero-content">
+    <p class="eyebrow">UMBRIA · LAZIO · TUSCIA</p><h1>Cammino dell’Intrepido Larth</h1><p>Un anello tra Orvieto, Bolsena e Civita di Bagnoregio, sulle tracce della storia etrusca tra tufo, lago, borghi e calanchi.</p>
+  </div>
+</section>
+<section class="section trail-introduction">
+  <div class="section-heading"><p class="eyebrow">IL VIAGGIO</p><h2>Tra Orvieto, Bolsena e Civita</h2></div>
+  <div class="trail-intro-text"><p>Il Cammino dell’Intrepido Larth è un percorso escursionistico ad anello che parte e termina a Orvieto e raggiunge prima Bolsena e poi Civita di Bagnoregio. Il sito ufficiale lo descrive come un itinerario di circa 60 km in tre giorni, adatto anche ai principianti e percorribile in tutte le stagioni.</p></div>
+</section>
+<section class="section">
+  <div class="section-heading"><p class="eyebrow">DATI TECNICI</p><h2>In numeri</h2></div>
+  <div class="trail-facts">
+    <div><span>Durata</span><strong>3 giorni</strong></div><div><span>Distanza</span><strong>≈ 60 km</strong></div><div><span>Dislivello +</span><strong>≈ 1.486 m</strong></div><div><span>Dislivello −</span><strong>≈ 1.493 m</strong></div><div><span>Regioni</span><strong>Umbria · Lazio</strong></div><div><span>Difficoltà</span><strong>—</strong></div>
+  </div>
+  <p class="official-note">I dati tecnici riportati fanno riferimento al percorso ufficiale. I dati del mio viaggio personale saranno riportati separatamente quando disponibili.</p>
+</section>
+<section class="section">
+  <div class="section-heading"><p class="eyebrow">IL PERCORSO</p><h2>Le tappe</h2></div>
+  <div class="stages-grid"><article class="stage-card">
+<h3>1 · Orvieto – Bolsena</h3>
+<div class="stage-data"><strong>≈ 21 km</strong><span>—</span><span>+574 m</span><span>−579 m</span></div>
+<p>Il sentiero del Miracolo Eucaristico attraversa Orvieto e prosegue fino a Bolsena, in gran parte su strade sterrate.</p>
+</article>
+<article class="stage-card">
+<h3>2 · Bolsena – Civita di Bagnoregio</h3>
+<div class="stage-data"><strong>≈ 18 km</strong><span>—</span><span>+382 m</span><span>−302 m</span></div>
+<p>Un tratto della Via Francigena conduce verso il Parco di Turona e poi attraverso boschi e pascoli fino a Civita.</p>
+</article>
+<article class="stage-card">
+<h3>3 · Civita di Bagnoregio – Orvieto</h3>
+<div class="stage-data"><strong>≈ 18 km</strong><span>—</span><span>+530 m</span><span>−612 m</span></div>
+<p>Una tappa tra arte, storia e natura, passando per Lubriano, Canale e il territorio che conduce nuovamente a Orvieto.</p>
+</article>
+</div>
+  <div class="official-note">Fonte ufficiale: <a href="https://camminodilarth.it/index.php/le-tappe/" target="_blank" rel="noopener">Cammino dell’Intrepido Larth</a>.</div>
+</section>
+<section class="section">
+  <div class="section-heading"><p class="eyebrow">TRACCE · MAPPA · INFO</p><h2>Organizza il cammino</h2></div>
+  <div class="trail-links"><a class="trail-button" href="https://camminodilarth.it/index.php/le-tappe/" target="_blank" rel="noopener">Sito ufficiale ↗</a></div>
+</section>
+<section class="section">
+  <div class="section-heading"><p class="eyebrow">IL MIO VIAGGIO</p><h2>La mia esperienza</h2></div>
+  <div class="trail-intro-text"><p>Qui raccoglierò il mio percorso personale, comprese le tappe effettive, fotografie, tracce e impressioni di viaggio.</p></div>
+</section>
+<section class="follow-section"><p class="eyebrow">SEGUIMI</p><h2>Altre storie, altri sentieri.</h2><div class="footer-socials"><a href="https://www.instagram.com/lyam.danese" target="_blank" rel="noopener">Instagram</a><a href="https://www.strava.com/athletes/113927710" target="_blank" rel="noopener">Strava</a><a href="https://www.komoot.com/it-it/user/556538882209" target="_blank" rel="noopener">Komoot</a></div></section>
+</main>
+<footer class="site-footer">
+
+<div class="footer-brand">
+LYAM <span>ON TRAIL</span>
+</div>
+
+<div class="footer-links">
+
+<a href="cammini.html">Cammini & Trekking</a>
+<a href="index.html#corsa">Corsa</a>
+<a href="index.html#escursioni">Escursioni</a>
+<a href="index.html#attrezzatura">Attrezzatura</a>
+<a href="index.html#diario">Diario</a>
+<a href="index.html#about">Chi sono</a>
+
+</div>
+
+<div class="footer-socials small">
+
+<a href="https://www.instagram.com/lyam.danese"
+   target="_blank"
+   rel="noopener">
+Instagram
+</a>
+
+<a href="https://www.strava.com/athletes/113927710"
+   target="_blank"
+   rel="noopener">
+Strava
+</a>
+
+<a href="https://www.komoot.com/it-it/user/556538882209"
+   target="_blank"
+   rel="noopener">
+Komoot
+</a>
+
+</div>
+
+<p class="copyright">
+© 2026 LYAM ON TRAIL
+</p>
+
+</footer>
+
+</body>
+</html>
